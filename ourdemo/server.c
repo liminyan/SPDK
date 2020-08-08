@@ -66,6 +66,46 @@ typedef struct
     ucp_ep_h server_ep;
 } mire_struct;
 
+static char* sockaddr_get_ip_str(const struct sockaddr_storage *sock_addr,
+                                 char *ip_str, size_t max_size)
+{
+    struct sockaddr_in  addr_in;
+    struct sockaddr_in6 addr_in6;
+
+    switch (sock_addr->ss_family) {
+    case AF_INET:
+        memcpy(&addr_in, sock_addr, sizeof(struct sockaddr_in));
+        inet_ntop(AF_INET, &addr_in.sin_addr, ip_str, max_size);
+        return ip_str;
+    case AF_INET6:
+        memcpy(&addr_in6, sock_addr, sizeof(struct sockaddr_in6));
+        inet_ntop(AF_INET6, &addr_in6.sin6_addr, ip_str, max_size);
+        return ip_str;
+    default:
+        return "Invalid address family";
+    }
+}
+
+static char* sockaddr_get_port_str(const struct sockaddr_storage *sock_addr,
+                                   char *port_str, size_t max_size)
+{
+    struct sockaddr_in  addr_in;
+    struct sockaddr_in6 addr_in6;
+
+    switch (sock_addr->ss_family) {
+    case AF_INET:
+        memcpy(&addr_in, sock_addr, sizeof(struct sockaddr_in));
+        snprintf(port_str, max_size, "%d", ntohs(addr_in.sin_port));
+        return port_str;
+    case AF_INET6:
+        memcpy(&addr_in6, sock_addr, sizeof(struct sockaddr_in6));
+        snprintf(port_str, max_size, "%d", ntohs(addr_in6.sin6_port));
+        return port_str;
+    default:
+        return "Invalid address family";
+    }
+}
+
 static int init_worker(ucp_context_h ucp_context, ucp_worker_h *ucp_worker)
 {
     ucp_worker_params_t worker_params;
@@ -147,6 +187,29 @@ static void server_conn_handle_cb(ucp_conn_request_h conn_request, void *arg)
                     ucs_status_string(status));
         }
     }
+}
+
+static ucs_status_t server_create_ep(ucp_worker_h data_worker,
+                                     ucp_conn_request_h conn_request,
+                                     ucp_ep_h *server_ep)
+{
+    ucp_ep_params_t ep_params;
+    ucs_status_t    status;
+    /* Server creates an ep to the client on the data worker.
+     * This is not the worker the listener was created on.
+     * The client side should have initiated the connection, leading
+     * to this ep's creation */
+    ep_params.field_mask      = UCP_EP_PARAM_FIELD_ERR_HANDLER |
+                                UCP_EP_PARAM_FIELD_CONN_REQUEST;
+    ep_params.conn_request    = conn_request;
+    ep_params.err_handler.cb  = err_cb;
+    ep_params.err_handler.arg = NULL;
+    status = ucp_ep_create(data_worker, &ep_params, server_ep);
+    if (status != UCS_OK) {
+        fprintf(stderr, "failed to create an endpoint on the server: (%s)\n",
+                ucs_status_string(status));
+    }
+    return status;
 }
 
 static ucs_status_t server_listen(ucp_worker_h ucp_worker,
@@ -279,6 +342,6 @@ int main()
     char buffer[100];
     int size_t = 8;
     mire_struct mire = start_server(); //start_client()
-    server_recv(mire, buffer, size_t, 1); //client_send()
+    server_send_recv(mire, buffer, size_t, 1); //client_send()
 }
 
