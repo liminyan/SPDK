@@ -50,8 +50,8 @@ LIBS += $(SPDK_LIB_LINKER_ARGS)
 
 CLEAN_FILES = $(APP)
 
-ENV_LIBS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src 
-ENV_LIBS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include 
+# ENV_LIBS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src 
+# ENV_LIBS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include 
 ENV_LIBS += -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
 
 all : $(APP)
