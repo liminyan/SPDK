@@ -108,7 +108,7 @@ main(int argc, char **argv)
 {
 	struct spdk_app_opts opts = {};
 	int rc;
-
+	printf("hi master\n");
 	spdk_app_opts_init(&opts);
 	opts.name = "spdk_tgt";
 	if ((rc = spdk_app_parse_args(argc, argv, &opts, g_spdk_tgt_get_opts_string,
