@@ -345,7 +345,8 @@ int begin_client(int argc, char *const argv[]){
     }
 
     ret = run_client(ucp_worker, server_addr, send_recv_type);
-
+  err:
+    return ret;
 }
 
 
