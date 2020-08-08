@@ -1,4 +1,4 @@
-Build started at 2020-08-08T09:05:06.878323
+Build started at 2020-08-08T09:10:12.879765
 Main binary: /usr/bin/python3.6
 Python system: Linux
 The Meson build system
@@ -39,8 +39,8 @@ Running command: /usr/bin/cat /global/home/users/rdmaworkshop12/SPDK/ourdemo/spd
 
 Program ../buildtools/symlink-drivers-solibs.sh found: YES (/bin/sh /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/config/../buildtools/symlink-drivers-solibs.sh)
 Running compile:
-Working directory:  /tmp/tmpum_bz3ml
-Command line:  cc /tmp/tmpum_bz3ml/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpum_bz3ml/output.exe -O0 
+Working directory:  /tmp/tmp5oxnkdpk
+Command line:  cc -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib /tmp/tmp5oxnkdpk/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmp5oxnkdpk/output.exe -O0 
 
 Code:
  #include<stdio.h>
@@ -62,8 +62,8 @@ Program stderr:
 
 Checking for size of "void *": 8
 Running compile:
-Working directory:  /tmp/tmpnsdw9mf7
-Command line:  cc /tmp/tmpnsdw9mf7/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpnsdw9mf7/output.exe -O0 -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /tmp/tmp7z30l6w0
+Command line:  cc -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib /tmp/tmp7z30l6w0/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmp7z30l6w0/output.exe -O0 -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(int argc, char **argv) { return 0; }
@@ -73,8 +73,8 @@ Compiler stderr:
  
 Library m found: YES
 Running compile:
-Working directory:  /tmp/tmpsgtwsf5p
-Command line:  cc /tmp/tmpsgtwsf5p/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpsgtwsf5p/output.exe -O0 -Wl,--start-group -lnuma -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /tmp/tmpneod65hs
+Command line:  cc -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib /tmp/tmpneod65hs/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpneod65hs/output.exe -O0 -Wl,--start-group -lnuma -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(int argc, char **argv) { return 0; }
@@ -84,8 +84,8 @@ Compiler stderr:
  
 Library numa found: YES
 Running compile:
-Working directory:  /tmp/tmp_3lh5gt8
-Command line:  cc /tmp/tmp_3lh5gt8/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
+Working directory:  /tmp/tmpxm1ujhg8
+Command line:  cc /tmp/tmpxm1ujhg8/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
 
 Code:
  
@@ -123,8 +123,8 @@ Called `/usr/bin/pkg-config --modversion pcap` -> 1
 Found pcap-config None NO
 Dependency pcap found: NO
 Running compile:
-Working directory:  /tmp/tmp7sm85s88
-Command line:  cc /tmp/tmp7sm85s88/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp7sm85s88/output.obj -fPIC -Wno-error -O0 -Wextra 
+Working directory:  /tmp/tmpztpq7s9h
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpztpq7s9h/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpztpq7s9h/output.obj -fPIC -Wno-error -O0 -Wextra 
 
 Code:
  int i;
@@ -135,8 +135,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wextra: YES
 Running compile:
-Working directory:  /tmp/tmpdyud0x_w
-Command line:  cc /tmp/tmpdyud0x_w/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpdyud0x_w/output.obj -fPIC -Wno-error -O0 -Wcast-qual 
+Working directory:  /tmp/tmpcgpb6jfb
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpcgpb6jfb/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpcgpb6jfb/output.obj -fPIC -Wno-error -O0 -Wcast-qual 
 
 Code:
  int i;
@@ -147,8 +147,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wcast-qual: YES
 Running compile:
-Working directory:  /tmp/tmpf385zq_c
-Command line:  cc /tmp/tmpf385zq_c/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpf385zq_c/output.obj -fPIC -Wno-error -O0 -Wdeprecated 
+Working directory:  /tmp/tmpspbcmumu
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpspbcmumu/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpspbcmumu/output.obj -fPIC -Wno-error -O0 -Wdeprecated 
 
 Code:
  int i;
@@ -159,8 +159,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wdeprecated: YES
 Running compile:
-Working directory:  /tmp/tmpy_p8p77m
-Command line:  cc /tmp/tmpy_p8p77m/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpy_p8p77m/output.obj -fPIC -Wno-error -O0 -Wformat-nonliteral 
+Working directory:  /tmp/tmpn1x3is4n
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpn1x3is4n/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpn1x3is4n/output.obj -fPIC -Wno-error -O0 -Wformat-nonliteral 
 
 Code:
  int i;
@@ -172,8 +172,8 @@ Compiler stderr:
 
 Compiler for C supports arguments -Wformat-nonliteral: YES
 Running compile:
-Working directory:  /tmp/tmpnzuk94_i
-Command line:  cc /tmp/tmpnzuk94_i/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpnzuk94_i/output.obj -fPIC -Wno-error -O0 -Wformat-security 
+Working directory:  /tmp/tmpaekoo2aa
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpaekoo2aa/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpaekoo2aa/output.obj -fPIC -Wno-error -O0 -Wformat-security 
 
 Code:
  int i;
@@ -185,8 +185,8 @@ Compiler stderr:
 
 Compiler for C supports arguments -Wformat-security: YES
 Running compile:
-Working directory:  /tmp/tmp_sjlzz_r
-Command line:  cc /tmp/tmp_sjlzz_r/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp_sjlzz_r/output.obj -fPIC -Wno-error -O0 -Wmissing-declarations 
+Working directory:  /tmp/tmpcepssj7r
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpcepssj7r/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpcepssj7r/output.obj -fPIC -Wno-error -O0 -Wmissing-declarations 
 
 Code:
  int i;
@@ -197,8 +197,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wmissing-declarations: YES
 Running compile:
-Working directory:  /tmp/tmpi9i4olt6
-Command line:  cc /tmp/tmpi9i4olt6/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpi9i4olt6/output.obj -fPIC -Wno-error -O0 -Wmissing-prototypes 
+Working directory:  /tmp/tmpk9m96cnj
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpk9m96cnj/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpk9m96cnj/output.obj -fPIC -Wno-error -O0 -Wmissing-prototypes 
 
 Code:
  int i;
@@ -209,8 +209,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wmissing-prototypes: YES
 Running compile:
-Working directory:  /tmp/tmpefqp3gdt
-Command line:  cc /tmp/tmpefqp3gdt/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpefqp3gdt/output.obj -fPIC -Wno-error -O0 -Wnested-externs 
+Working directory:  /tmp/tmprmygj7gg
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmprmygj7gg/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmprmygj7gg/output.obj -fPIC -Wno-error -O0 -Wnested-externs 
 
 Code:
  int i;
@@ -221,8 +221,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wnested-externs: YES
 Running compile:
-Working directory:  /tmp/tmpqhnk659c
-Command line:  cc /tmp/tmpqhnk659c/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpqhnk659c/output.obj -fPIC -Wno-error -O0 -Wold-style-definition 
+Working directory:  /tmp/tmp4lu9i_xy
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmp4lu9i_xy/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp4lu9i_xy/output.obj -fPIC -Wno-error -O0 -Wold-style-definition 
 
 Code:
  int i;
@@ -233,8 +233,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wold-style-definition: YES
 Running compile:
-Working directory:  /tmp/tmp2b_pmuzs
-Command line:  cc /tmp/tmp2b_pmuzs/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp2b_pmuzs/output.obj -fPIC -Wno-error -O0 -Wpointer-arith 
+Working directory:  /tmp/tmpcmcgd1g4
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpcmcgd1g4/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpcmcgd1g4/output.obj -fPIC -Wno-error -O0 -Wpointer-arith 
 
 Code:
  int i;
@@ -245,8 +245,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wpointer-arith: YES
 Running compile:
-Working directory:  /tmp/tmpz3bbjajo
-Command line:  cc /tmp/tmpz3bbjajo/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpz3bbjajo/output.obj -fPIC -Wno-error -O0 -Wsign-compare 
+Working directory:  /tmp/tmpb9v36o_3
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpb9v36o_3/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpb9v36o_3/output.obj -fPIC -Wno-error -O0 -Wsign-compare 
 
 Code:
  int i;
@@ -257,8 +257,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wsign-compare: YES
 Running compile:
-Working directory:  /tmp/tmp5of4jmko
-Command line:  cc /tmp/tmp5of4jmko/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp5of4jmko/output.obj -fPIC -Wno-error -O0 -Wstrict-prototypes 
+Working directory:  /tmp/tmp2soh61bs
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmp2soh61bs/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp2soh61bs/output.obj -fPIC -Wno-error -O0 -Wstrict-prototypes 
 
 Code:
  int i;
@@ -269,8 +269,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wstrict-prototypes: YES
 Running compile:
-Working directory:  /tmp/tmphxlj5vvo
-Command line:  cc /tmp/tmphxlj5vvo/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmphxlj5vvo/output.obj -fPIC -Wno-error -O0 -Wundef 
+Working directory:  /tmp/tmppwhx_lu6
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmppwhx_lu6/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmppwhx_lu6/output.obj -fPIC -Wno-error -O0 -Wundef 
 
 Code:
  int i;
@@ -281,8 +281,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wundef: YES
 Running compile:
-Working directory:  /tmp/tmpswqik_oq
-Command line:  cc /tmp/tmpswqik_oq/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpswqik_oq/output.obj -fPIC -Wno-error -O0 -Wwrite-strings 
+Working directory:  /tmp/tmpj7o0ao2d
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpj7o0ao2d/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpj7o0ao2d/output.obj -fPIC -Wno-error -O0 -Wwrite-strings 
 
 Code:
  int i;
@@ -293,8 +293,8 @@ Compiler stderr:
  
 Compiler for C supports arguments -Wwrite-strings: YES
 Running compile:
-Working directory:  /tmp/tmp0doz831v
-Command line:  cc /tmp/tmp0doz831v/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp0doz831v/output.obj -fPIC -Wno-error -O0 -Wno-address-of-packed-member -Waddress-of-packed-member 
+Working directory:  /tmp/tmpm6ls07ih
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpm6ls07ih/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpm6ls07ih/output.obj -fPIC -Wno-error -O0 -Wno-address-of-packed-member -Waddress-of-packed-member 
 
 Code:
  int i;
@@ -306,8 +306,8 @@ Compiler stderr:
 
 Compiler for C supports arguments -Wno-address-of-packed-member -Waddress-of-packed-member: NO
 Running compile:
-Working directory:  /tmp/tmpx9cd48p_
-Command line:  cc /tmp/tmpx9cd48p_/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpx9cd48p_/output.obj -fPIC -Wno-error -O0 -Wno-packed-not-aligned -Wpacked-not-aligned 
+Working directory:  /tmp/tmpkx_dbqbc
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpkx_dbqbc/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpkx_dbqbc/output.obj -fPIC -Wno-error -O0 -Wno-packed-not-aligned -Wpacked-not-aligned 
 
 Code:
  int i;
@@ -319,8 +319,8 @@ Compiler stderr:
 
 Compiler for C supports arguments -Wno-packed-not-aligned -Wpacked-not-aligned: NO
 Running compile:
-Working directory:  /tmp/tmpn7g7qy7v
-Command line:  cc /tmp/tmpn7g7qy7v/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpn7g7qy7v/output.obj -fPIC -Wno-error -O0 -Wno-missing-field-initializers -Wmissing-field-initializers 
+Working directory:  /tmp/tmpeatr8ci0
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpeatr8ci0/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpeatr8ci0/output.obj -fPIC -Wno-error -O0 -Wno-missing-field-initializers -Wmissing-field-initializers 
 
 Code:
  int i;
@@ -338,8 +338,8 @@ GNU ld version 2.27-41.base.el7_7.1
 
 
 Running compile:
-Working directory:  /tmp/tmpdwsrelrw
-Command line:  cc /tmp/tmpdwsrelrw/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+Working directory:  /tmp/tmpqu5ftbfv
+Command line:  cc /tmp/tmpqu5ftbfv/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
 
 Code:
  
@@ -357,8 +357,8 @@ Compiler stderr:
  
 Fetching value of define "__SSE4_2__": 1
 Running compile:
-Working directory:  /tmp/tmpe2_a634_
-Command line:  cc /tmp/tmpe2_a634_/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+Working directory:  /tmp/tmpberjyn03
+Command line:  cc /tmp/tmpberjyn03/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
 
 Code:
  
@@ -376,8 +376,8 @@ Compiler stderr:
  
 Fetching value of define "__AES__": 1
 Running compile:
-Working directory:  /tmp/tmp89l33wi6
-Command line:  cc /tmp/tmp89l33wi6/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+Working directory:  /tmp/tmprr3hxav3
+Command line:  cc /tmp/tmprr3hxav3/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
 
 Code:
  
@@ -395,8 +395,8 @@ Compiler stderr:
  
 Fetching value of define "__PCLMUL__": 1
 Running compile:
-Working directory:  /tmp/tmpg4vmnz04
-Command line:  cc /tmp/tmpg4vmnz04/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+Working directory:  /tmp/tmpv_f0z4in
+Command line:  cc /tmp/tmpv_f0z4in/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
 
 Code:
  
@@ -414,8 +414,8 @@ Compiler stderr:
  
 Fetching value of define "__AVX__": 1
 Running compile:
-Working directory:  /tmp/tmp029ump_a
-Command line:  cc /tmp/tmp029ump_a/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+Working directory:  /tmp/tmp_krhjdu5
+Command line:  cc /tmp/tmp_krhjdu5/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
 
 Code:
  
@@ -433,8 +433,8 @@ Compiler stderr:
  
 Fetching value of define "__AVX2__": 
 Running compile:
-Working directory:  /tmp/tmps7rvj4tl
-Command line:  cc /tmp/tmps7rvj4tl/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+Working directory:  /tmp/tmpa9osa9h9
+Command line:  cc /tmp/tmpa9osa9h9/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
 
 Code:
  
@@ -452,8 +452,8 @@ Compiler stderr:
  
 Fetching value of define "__AVX512F__": 
 Running compile:
-Working directory:  /tmp/tmp891r28de
-Command line:  cc /tmp/tmp891r28de/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+Working directory:  /tmp/tmpku092dpy
+Command line:  cc /tmp/tmpku092dpy/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
 
 Code:
  
@@ -471,8 +471,8 @@ Compiler stderr:
  
 Fetching value of define "__RDRND__": 1
 Running compile:
-Working directory:  /tmp/tmp_386uqk_
-Command line:  cc /tmp/tmp_386uqk_/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+Working directory:  /tmp/tmpbpntfkry
+Command line:  cc /tmp/tmpbpntfkry/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
 
 Code:
  
@@ -497,8 +497,8 @@ Program options-ibverbs-static.sh found: YES (/global/home/users/rdmaworkshop12/
 Using meson's python ['/usr/bin/python3.6']
 Program grep found: YES (/usr/bin/grep)
 Running compile:
-Working directory:  /tmp/tmpyk15rp0v
-Command line:  cc /tmp/tmpyk15rp0v/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpyk15rp0v/output.obj -fPIC -Wno-error -O0 -Wno-format-truncation -Wformat-truncation 
+Working directory:  /tmp/tmpq9fm8jaj
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpq9fm8jaj/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpq9fm8jaj/output.obj -fPIC -Wno-error -O0 -Wno-format-truncation -Wformat-truncation 
 
 Code:
  int i;
@@ -525,8 +525,8 @@ Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/our
 
 Message: lib/librte_telemetry: Defining dependency "telemetry"
 Running compile:
-Working directory:  /tmp/tmpthcm5kx3
-Command line:  cc /tmp/tmpthcm5kx3/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpthcm5kx3/output.exe -O0 
+Working directory:  /tmp/tmpckbvyf1w
+Command line:  cc -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib /tmp/tmpckbvyf1w/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpckbvyf1w/output.exe -O0 
 
 Code:
  #include <unistd.h>
@@ -544,15 +544,15 @@ int main() {
 Compiler stdout:
  
 Compiler stderr:
- /tmp/tmpthcm5kx3/testfile.c: In function 'main':
-/tmp/tmpthcm5kx3/testfile.c:9:32: error: 'getentropy' undeclared (first use in this function)
+ /tmp/tmpckbvyf1w/testfile.c: In function 'main':
+/tmp/tmpckbvyf1w/testfile.c:9:32: error: 'getentropy' undeclared (first use in this function)
              void *a = (void*) &getentropy;
                                 ^
-/tmp/tmpthcm5kx3/testfile.c:9:32: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/tmpckbvyf1w/testfile.c:9:32: note: each undeclared identifier is reported only once for each function it appears in
 
 Running compile:
-Working directory:  /tmp/tmpoujvy2qc
-Command line:  cc /tmp/tmpoujvy2qc/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpoujvy2qc/output.exe -O0 
+Working directory:  /tmp/tmp31igtiis
+Command line:  cc -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib /tmp/tmp31igtiis/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmp31igtiis/output.exe -O0 
 
 Code:
  #include <unistd.h>
@@ -577,15 +577,15 @@ Code:
 Compiler stdout:
  
 Compiler stderr:
- /tmp/tmpoujvy2qc/testfile.c: In function 'main':
-/tmp/tmpoujvy2qc/testfile.c:16:18: error: #error "No definition for __builtin_getentropy found in the prefix"
+ /tmp/tmp31igtiis/testfile.c: In function 'main':
+/tmp/tmp31igtiis/testfile.c:16:18: error: #error "No definition for __builtin_getentropy found in the prefix"
                  #error "No definition for __builtin_getentropy found in the prefix"
                   ^
 
 Checking for function "getentropy" : NO
 Running compile:
-Working directory:  /tmp/tmptxp66yng
-Command line:  cc /tmp/tmptxp66yng/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
+Working directory:  /tmp/tmp_tlor9gk
+Command line:  cc /tmp/tmp_tlor9gk/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
 
 Code:
  
@@ -841,8 +841,8 @@ DPDK_20.0 {
 
 Message: lib/librte_hash: Defining dependency "hash"
 Running compile:
-Working directory:  /tmp/tmpq1ti0jed
-Command line:  cc /tmp/tmpq1ti0jed/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpq1ti0jed/output.obj -fPIC -Wno-error -O0 -mavx2 
+Working directory:  /tmp/tmplasipb2c
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmplasipb2c/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmplasipb2c/output.obj -fPIC -Wno-error -O0 -mavx2 
 
 Code:
  int i;
@@ -877,8 +877,8 @@ DPDK_20.0 {
 
 Message: lib/librte_reorder: Defining dependency "reorder"
 Running compile:
-Working directory:  /tmp/tmp33mvyb7z
-Command line:  cc /tmp/tmp33mvyb7z/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
+Working directory:  /tmp/tmps8v061j0
+Command line:  cc /tmp/tmps8v061j0/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
 
 Code:
  
@@ -1022,8 +1022,8 @@ Called `/usr/bin/pkg-config libelf --libs` -> 0
 Called `/usr/bin/pkg-config libelf --libs` -> 0
 -lelf
 Running compile:
-Working directory:  /tmp/tmprshl4dgg
-Command line:  cc /tmp/tmprshl4dgg/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmprshl4dgg/output.obj -fPIC -Wno-error -O0 --print-search-dirs 
+Working directory:  /tmp/tmpfezjuxf7
+Command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpfezjuxf7/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpfezjuxf7/output.obj -fPIC -Wno-error -O0 --print-search-dirs 
 
 Code:
  
@@ -1218,7 +1218,7 @@ vdpa/mlx5
 
 
 Using cached compile:
-Cached command line:  cc /tmp/tmpyk15rp0v/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpyk15rp0v/output.obj -fPIC -Wno-error -O0 -Wno-format-truncation -Wformat-truncation 
+Cached command line:  cc -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src /tmp/tmpq9fm8jaj/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpq9fm8jaj/output.obj -fPIC -Wno-error -O0 -Wno-format-truncation -Wformat-truncation 
 
 Code:
  int i;
@@ -1260,8 +1260,8 @@ Program doxy-html-custom.sh found: YES (/global/home/users/rdmaworkshop12/SPDK/o
 Configuring doxy-api.conf using configuration
 Program sphinx-build found: NO
 Running compile:
-Working directory:  /tmp/tmptdtkk1ti
-Command line:  cc /tmp/tmptdtkk1ti/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmptdtkk1ti/output.exe -O0 -Wl,--start-group -lexecinfo -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /tmp/tmpighn52ld
+Command line:  cc -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib /tmp/tmpighn52ld/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpighn52ld/output.exe -O0 -Wl,--start-group -lexecinfo -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(int argc, char **argv) { return 0; }
