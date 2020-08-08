@@ -80,15 +80,22 @@ static int init_worker(ucp_context_h ucp_context, ucp_worker_h *ucp_worker)
 
 static int init_context(ucp_context_h *ucp_context, ucp_worker_h *ucp_worker)
 {
+    /* UCP objects */
     ucp_params_t ucp_params;
     ucs_status_t status;
     int ret = 0;
     memset(&ucp_params, 0, sizeof(ucp_params));
     /* UCP initialization */
-    ucp_params.field_mask = UCP_PARAM_FIELD_FEATURES;
-    ucp_params.features = UCP_FEATURE_STREAM;
+    ucp_params.field_mask   = UCP_PARAM_FIELD_FEATURES     |
+                              UCP_PARAM_FIELD_REQUEST_SIZE |
+                              UCP_PARAM_FIELD_REQUEST_INIT;
+    ucp_params.features     = UCP_FEATURE_STREAM | UCP_FEATURE_TAG;
+    ucp_params.request_size = sizeof(test_req_t);
+    ucp_params.request_init = request_init;
     status = ucp_init(&ucp_params, NULL, ucp_context);
     if (status != UCS_OK) {
+        fprintf(stderr, "failed to ucp_init (%s)\n", ucs_status_string(status));
+        ret = -1;
         goto err;
     }
     ret = init_worker(*ucp_context, ucp_worker);
@@ -179,6 +186,7 @@ static ucs_status_t server_listen(ucp_worker_h ucp_worker,
     fprintf(stderr, "server is listening on IP %s port %s\n",
             sockaddr_get_ip_str(&attr.sockaddr, ip_str, IP_STRING_LEN),
             sockaddr_get_port_str(&attr.sockaddr, port_str, PORT_STRING_LEN));
+
     printf("Waiting for connection...\n");
 out:
     return status;
@@ -197,29 +205,28 @@ mire_struct start_server()
     int ret = init_context(&ucp_context, &ucp_worker);
     ret = init_worker(ucp_context, &ucp_data_worker);
     context.conn_request = NULL;
-    struct sockaddr_in listen_addr;
-    set_listen_addr(NULL, &listen_addr);
+
     status = server_listen(ucp_worker, &context, &context.listener, NULL);
 
-    ucp_listener_params_t params;
-    params.field_mask         = UCP_LISTENER_PARAM_FIELD_SOCK_ADDR |
-                                UCP_LISTENER_PARAM_FIELD_CONN_HANDLER;
-    params.sockaddr.addr      = (const struct sockaddr*)&listen_addr;
-    params.sockaddr.addrlen   = sizeof(listen_addr);
-    params.conn_handler.cb    = server_conn_handle_cb;
-    params.conn_handler.arg   = context;
+    // ucp_listener_params_t params;
+    // params.field_mask         = UCP_LISTENER_PARAM_FIELD_SOCK_ADDR |
+    //                             UCP_LISTENER_PARAM_FIELD_CONN_HANDLER;
+    // params.sockaddr.addr      = (const struct sockaddr*)&listen_addr;
+    // params.sockaddr.addrlen   = sizeof(listen_addr);
+    // params.conn_handler.cb    = server_conn_handle_cb;
+    // params.conn_handler.arg   = context;
 
-    status = ucp_listener_create(ucp_worker, &params, listener_p);
+    // status = ucp_listener_create(ucp_worker, &params, listener_p);
     if (status != UCS_OK) {
         printf("mire gg!\n");
         goto out;
     }
-    attr.field_mask = UCP_LISTENER_ATTR_FIELD_SOCKADDR;
-    status = ucp_listener_query(*listener_p, &attr);
-    fprintf(stderr, "server is listening on IP %s port %s\n",
-            sockaddr_get_ip_str(&attr.sockaddr, ip_str, IP_STRING_LEN),
-            sockaddr_get_port_str(&attr.sockaddr, port_str, PORT_STRING_LEN));
-    printf("Waiting for connection...\n");
+    // attr.field_mask = UCP_LISTENER_ATTR_FIELD_SOCKADDR;
+    // status = ucp_listener_query(*listener_p, &attr);
+    // fprintf(stderr, "server is listening on IP %s port %s\n",
+    //         sockaddr_get_ip_str(&attr.sockaddr, ip_str, IP_STRING_LEN),
+    //         sockaddr_get_port_str(&attr.sockaddr, port_str, PORT_STRING_LEN));
+    // printf("Waiting for connection...\n");
 
     while (context.conn_request == NULL) {
         ucp_worker_progress(ucp_worker);
@@ -238,30 +245,22 @@ err:
     return ret;
 }
 
-static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int size_t, int t)
+static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t)
 
 {
-    ucp_request_param_t param;
     test_req_t *request;
     size_t length;
-    test_req_t ctx;
-    ctx.complete = 0;
-    param.op_attr_mask = UCP_OP_ATTR_FIELD_CALLBACK |
-                         UCP_OP_ATTR_FIELD_USER_DATA;
-    param.user_data    = &ctx;
     if (!t) {
-        /* Sends a message to the server using the stream API */
-        param.cb.send = send_cb;
-        request       = ucp_stream_send_nbx(ep, buffer, size_t,
-                                            &param);
+        /* Client sends a message to the server using the stream API */
+        request = ucp_stream_send_nb(ep, buffer, 1,
+                                     ucp_dt_make_contig(comm_size),
+                                     send_cb, 0);
     } else {
-        /* Receives a message from the client using the stream API */
-        param.op_attr_mask  |= UCP_OP_ATTR_FIELD_FLAGS;
-        param.flags          = UCP_STREAM_RECV_FLAG_WAITALL;
-        param.cb.recv_stream = stream_recv_cb;
-        request              = ucp_stream_recv_nbx(ep, buffer,
-                                                   size_t,
-                                                   &length, &param);
+        /* Server receives a message from the client using the stream API */
+        request = ucp_stream_recv_nb(ep, buffer, 1,
+                                     ucp_dt_make_contig(comm_size),
+                                     stream_recv_cb, &length,
+                                     UCP_STREAM_RECV_FLAG_WAITALL);
     }
     return 0;
 }
