@@ -32,11 +32,17 @@
  */
 
 #include "spdk/stdinc.h"
-
 #include "spdk/config.h"
 #include "spdk/env.h"
 #include "spdk/event.h"
 #include "spdk/vhost.h"
+
+
+#include <ucp/api/ucp.h>
+#include <string.h>    /* memset */
+#include <arpa/inet.h> /* inet_addr */
+#include <unistd.h>    /* getopt */
+#include <stdlib.h>    /* atoi */
 
 #ifdef SPDK_CONFIG_VHOST
 #define SPDK_VHOST_OPTS "S:"
