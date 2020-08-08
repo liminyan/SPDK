@@ -50,9 +50,9 @@ LIBS += $(SPDK_LIB_LINKER_ARGS)
 
 CLEAN_FILES = $(APP)
 
-# ENV_LIBS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src 
-# ENV_LIBS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include 
-# ENV_LIBS += -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
+LIBS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src 
+LIBS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include 
+LIBS += -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
 
 all : $(APP)
 	@:
@@ -69,7 +69,8 @@ empty_rule:
 
 
 $(APP) : $(OBJS) $(SPDK_LIB_FILES) $(ENV_LIBS)
-	$(LINK_C)  -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
+	$(LINK_C)  
+# 	-I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
 
 clean :
 	$(CLEAN_C) $(CLEAN_FILES)
