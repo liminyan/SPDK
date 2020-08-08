@@ -1,0 +1,7 @@
+ 0x000000000000000e (SONAME)             Library soname: [librte_pci.so.20.0]
+DPDK_20.0 A
+pci_map_resource T
+pci_unmap_resource T
+rte_pci_addr_cmp T
+rte_pci_addr_parse T
+rte_pci_device_name T

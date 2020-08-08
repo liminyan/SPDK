@@ -1,0 +1,1472 @@
+Build started at 2020-08-08T09:05:06.878323
+Main binary: /usr/bin/python3.6
+Python system: Linux
+The Meson build system
+Version: 0.47.2
+Source dir: /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk
+Build dir: /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/build-tmp
+Build type: native build
+Program cat found: YES (/usr/bin/cat)
+Running command: /usr/bin/cat /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/VERSION
+--- stdout ---
+20.05.0
+
+--- stderr ---
+
+
+Project name: DPDK
+Project version: 20.05.0
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/build-tmp/meson-private/sanitycheckc.c -o /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/build-tmp/meson-private/sanitycheckc.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/build-tmp/meson-private/sanitycheckc.exe
+Native C compiler: cc (gcc 4.8.5 "cc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)")
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Program cat found: YES (/usr/bin/cat)
+Running command: /usr/bin/cat /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/ABI_VERSION
+--- stdout ---
+20.0.2
+
+--- stderr ---
+
+
+Program ../buildtools/symlink-drivers-solibs.sh found: YES (/bin/sh /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/config/../buildtools/symlink-drivers-solibs.sh)
+Running compile:
+Working directory:  /tmp/tmpum_bz3ml
+Command line:  cc /tmp/tmpum_bz3ml/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpum_bz3ml/output.exe -O0 
+
+Code:
+ #include<stdio.h>
+        
+        int main(int argc, char **argv) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Checking for size of "void *": 8
+Running compile:
+Working directory:  /tmp/tmpnsdw9mf7
+Command line:  cc /tmp/tmpnsdw9mf7/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpnsdw9mf7/output.exe -O0 -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(int argc, char **argv) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Library m found: YES
+Running compile:
+Working directory:  /tmp/tmpsgtwsf5p
+Command line:  cc /tmp/tmpsgtwsf5p/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpsgtwsf5p/output.exe -O0 -Wl,--start-group -lnuma -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(int argc, char **argv) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Library numa found: YES
+Running compile:
+Working directory:  /tmp/tmp_3lh5gt8
+Command line:  cc /tmp/tmp_3lh5gt8/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("numaif.h")
+          #error "Header 'numaif.h' could not be found"
+         #endif
+        #else
+         #include <numaif.h>
+        #endif
+Compiler stdout:
+ extern long get_mempolicy(int *mode, unsigned long *nmask,
+   unsigned long maxnode, void *addr, unsigned flags);
+extern long mbind(void *start, unsigned long len, int mode,
+ const unsigned long *nmask, unsigned long maxnode, unsigned flags);
+extern long set_mempolicy(int mode, const unsigned long *nmask,
+     unsigned long maxnode);
+extern long migrate_pages(int pid, unsigned long maxnode,
+     const unsigned long *frommask,
+     const unsigned long *tomask);
+extern long move_pages(int pid, unsigned long count,
+  void **pages, const int *nodes, int *status, int flags);
+
+Compiler stderr:
+ 
+Has header "numaif.h": YES
+Found pkg-config: /usr/bin/pkg-config (0.27.1)
+Determining dependency 'libbsd' with pkg-config executable '/usr/bin/pkg-config'
+Called `/usr/bin/pkg-config --modversion libbsd` -> 1
+
+Dependency libbsd found: NO
+Determining dependency 'pcap' with pkg-config executable '/usr/bin/pkg-config'
+Called `/usr/bin/pkg-config --modversion pcap` -> 1
+
+Found pcap-config None NO
+Dependency pcap found: NO
+Running compile:
+Working directory:  /tmp/tmp7sm85s88
+Command line:  cc /tmp/tmp7sm85s88/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp7sm85s88/output.obj -fPIC -Wno-error -O0 -Wextra 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wextra: YES
+Running compile:
+Working directory:  /tmp/tmpdyud0x_w
+Command line:  cc /tmp/tmpdyud0x_w/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpdyud0x_w/output.obj -fPIC -Wno-error -O0 -Wcast-qual 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wcast-qual: YES
+Running compile:
+Working directory:  /tmp/tmpf385zq_c
+Command line:  cc /tmp/tmpf385zq_c/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpf385zq_c/output.obj -fPIC -Wno-error -O0 -Wdeprecated 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wdeprecated: YES
+Running compile:
+Working directory:  /tmp/tmpy_p8p77m
+Command line:  cc /tmp/tmpy_p8p77m/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpy_p8p77m/output.obj -fPIC -Wno-error -O0 -Wformat-nonliteral 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc1: warning: -Wformat-nonliteral ignored without -Wformat [-Wformat-nonliteral]
+
+Compiler for C supports arguments -Wformat-nonliteral: YES
+Running compile:
+Working directory:  /tmp/tmpnzuk94_i
+Command line:  cc /tmp/tmpnzuk94_i/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpnzuk94_i/output.obj -fPIC -Wno-error -O0 -Wformat-security 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc1: warning: -Wformat-security ignored without -Wformat [-Wformat-security]
+
+Compiler for C supports arguments -Wformat-security: YES
+Running compile:
+Working directory:  /tmp/tmp_sjlzz_r
+Command line:  cc /tmp/tmp_sjlzz_r/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp_sjlzz_r/output.obj -fPIC -Wno-error -O0 -Wmissing-declarations 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wmissing-declarations: YES
+Running compile:
+Working directory:  /tmp/tmpi9i4olt6
+Command line:  cc /tmp/tmpi9i4olt6/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpi9i4olt6/output.obj -fPIC -Wno-error -O0 -Wmissing-prototypes 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wmissing-prototypes: YES
+Running compile:
+Working directory:  /tmp/tmpefqp3gdt
+Command line:  cc /tmp/tmpefqp3gdt/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpefqp3gdt/output.obj -fPIC -Wno-error -O0 -Wnested-externs 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wnested-externs: YES
+Running compile:
+Working directory:  /tmp/tmpqhnk659c
+Command line:  cc /tmp/tmpqhnk659c/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpqhnk659c/output.obj -fPIC -Wno-error -O0 -Wold-style-definition 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wold-style-definition: YES
+Running compile:
+Working directory:  /tmp/tmp2b_pmuzs
+Command line:  cc /tmp/tmp2b_pmuzs/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp2b_pmuzs/output.obj -fPIC -Wno-error -O0 -Wpointer-arith 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wpointer-arith: YES
+Running compile:
+Working directory:  /tmp/tmpz3bbjajo
+Command line:  cc /tmp/tmpz3bbjajo/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpz3bbjajo/output.obj -fPIC -Wno-error -O0 -Wsign-compare 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wsign-compare: YES
+Running compile:
+Working directory:  /tmp/tmp5of4jmko
+Command line:  cc /tmp/tmp5of4jmko/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp5of4jmko/output.obj -fPIC -Wno-error -O0 -Wstrict-prototypes 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wstrict-prototypes: YES
+Running compile:
+Working directory:  /tmp/tmphxlj5vvo
+Command line:  cc /tmp/tmphxlj5vvo/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmphxlj5vvo/output.obj -fPIC -Wno-error -O0 -Wundef 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wundef: YES
+Running compile:
+Working directory:  /tmp/tmpswqik_oq
+Command line:  cc /tmp/tmpswqik_oq/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpswqik_oq/output.obj -fPIC -Wno-error -O0 -Wwrite-strings 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wwrite-strings: YES
+Running compile:
+Working directory:  /tmp/tmp0doz831v
+Command line:  cc /tmp/tmp0doz831v/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp0doz831v/output.obj -fPIC -Wno-error -O0 -Wno-address-of-packed-member -Waddress-of-packed-member 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc: error: unrecognized command line option '-Waddress-of-packed-member'
+
+Compiler for C supports arguments -Wno-address-of-packed-member -Waddress-of-packed-member: NO
+Running compile:
+Working directory:  /tmp/tmpx9cd48p_
+Command line:  cc /tmp/tmpx9cd48p_/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpx9cd48p_/output.obj -fPIC -Wno-error -O0 -Wno-packed-not-aligned -Wpacked-not-aligned 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc: error: unrecognized command line option '-Wpacked-not-aligned'
+
+Compiler for C supports arguments -Wno-packed-not-aligned -Wpacked-not-aligned: NO
+Running compile:
+Working directory:  /tmp/tmpn7g7qy7v
+Command line:  cc /tmp/tmpn7g7qy7v/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpn7g7qy7v/output.obj -fPIC -Wno-error -O0 -Wno-missing-field-initializers -Wmissing-field-initializers 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -Wno-missing-field-initializers -Wmissing-field-initializers: YES
+Running command: /usr/bin/ld -v
+--- stdout ---
+GNU ld version 2.27-41.base.el7_7.1
+
+--- stderr ---
+
+
+Running compile:
+Working directory:  /tmp/tmpdwsrelrw
+Command line:  cc /tmp/tmpdwsrelrw/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+
+Code:
+ 
+        
+        #ifndef __SSE4_2__
+        # define __SSE4_2__
+        #endif
+        "MESON_GET_DEFINE_DELIMITER"
+__SSE4_2__
+Compiler stdout:
+         "MESON_GET_DEFINE_DELIMITER"
+1
+
+Compiler stderr:
+ 
+Fetching value of define "__SSE4_2__": 1
+Running compile:
+Working directory:  /tmp/tmpe2_a634_
+Command line:  cc /tmp/tmpe2_a634_/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+
+Code:
+ 
+        
+        #ifndef __AES__
+        # define __AES__
+        #endif
+        "MESON_GET_DEFINE_DELIMITER"
+__AES__
+Compiler stdout:
+         "MESON_GET_DEFINE_DELIMITER"
+1
+
+Compiler stderr:
+ 
+Fetching value of define "__AES__": 1
+Running compile:
+Working directory:  /tmp/tmp89l33wi6
+Command line:  cc /tmp/tmp89l33wi6/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+
+Code:
+ 
+        
+        #ifndef __PCLMUL__
+        # define __PCLMUL__
+        #endif
+        "MESON_GET_DEFINE_DELIMITER"
+__PCLMUL__
+Compiler stdout:
+         "MESON_GET_DEFINE_DELIMITER"
+1
+
+Compiler stderr:
+ 
+Fetching value of define "__PCLMUL__": 1
+Running compile:
+Working directory:  /tmp/tmpg4vmnz04
+Command line:  cc /tmp/tmpg4vmnz04/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+
+Code:
+ 
+        
+        #ifndef __AVX__
+        # define __AVX__
+        #endif
+        "MESON_GET_DEFINE_DELIMITER"
+__AVX__
+Compiler stdout:
+         "MESON_GET_DEFINE_DELIMITER"
+1
+
+Compiler stderr:
+ 
+Fetching value of define "__AVX__": 1
+Running compile:
+Working directory:  /tmp/tmp029ump_a
+Command line:  cc /tmp/tmp029ump_a/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+
+Code:
+ 
+        
+        #ifndef __AVX2__
+        # define __AVX2__
+        #endif
+        "MESON_GET_DEFINE_DELIMITER"
+__AVX2__
+Compiler stdout:
+         "MESON_GET_DEFINE_DELIMITER"
+
+
+Compiler stderr:
+ 
+Fetching value of define "__AVX2__": 
+Running compile:
+Working directory:  /tmp/tmps7rvj4tl
+Command line:  cc /tmp/tmps7rvj4tl/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+
+Code:
+ 
+        
+        #ifndef __AVX512F__
+        # define __AVX512F__
+        #endif
+        "MESON_GET_DEFINE_DELIMITER"
+__AVX512F__
+Compiler stdout:
+         "MESON_GET_DEFINE_DELIMITER"
+
+
+Compiler stderr:
+ 
+Fetching value of define "__AVX512F__": 
+Running compile:
+Working directory:  /tmp/tmp891r28de
+Command line:  cc /tmp/tmp891r28de/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+
+Code:
+ 
+        
+        #ifndef __RDRND__
+        # define __RDRND__
+        #endif
+        "MESON_GET_DEFINE_DELIMITER"
+__RDRND__
+Compiler stdout:
+         "MESON_GET_DEFINE_DELIMITER"
+1
+
+Compiler stderr:
+ 
+Fetching value of define "__RDRND__": 1
+Running compile:
+Working directory:  /tmp/tmp_386uqk_
+Command line:  cc /tmp/tmp_386uqk_/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 -march=native 
+
+Code:
+ 
+        
+        #ifndef __RDSEED__
+        # define __RDSEED__
+        #endif
+        "MESON_GET_DEFINE_DELIMITER"
+__RDSEED__
+Compiler stdout:
+         "MESON_GET_DEFINE_DELIMITER"
+
+
+Compiler stderr:
+ 
+Fetching value of define "__RDSEED__": 
+Program pkg-config found: YES (/usr/bin/pkg-config)
+Program gen-pmdinfo-cfile.sh found: YES (/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/buildtools/gen-pmdinfo-cfile.sh)
+Program list-dir-globs.py found: YES (/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/buildtools/list-dir-globs.py)
+Program check-symbols.sh found: YES (/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/buildtools/check-symbols.sh)
+Program options-ibverbs-static.sh found: YES (/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/buildtools/options-ibverbs-static.sh)
+Using meson's python ['/usr/bin/python3.6']
+Program grep found: YES (/usr/bin/grep)
+Running compile:
+Working directory:  /tmp/tmpyk15rp0v
+Command line:  cc /tmp/tmpyk15rp0v/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpyk15rp0v/output.obj -fPIC -Wno-error -O0 -Wno-format-truncation -Wformat-truncation 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ cc: error: unrecognized command line option '-Wformat-truncation'
+
+Compiler for C supports arguments -Wno-format-truncation -Wformat-truncation: NO
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_kvargs/rte_kvargs_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_kvargs: Defining dependency "kvargs"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_telemetry/rte_telemetry_version.map
+--- stdout ---
+
+--- stderr ---
+
+
+Message: lib/librte_telemetry: Defining dependency "telemetry"
+Running compile:
+Working directory:  /tmp/tmpthcm5kx3
+Command line:  cc /tmp/tmpthcm5kx3/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpthcm5kx3/output.exe -O0 
+
+Code:
+ #include <unistd.h>
+#include <limits.h>
+
+        #if defined __stub_getentropy || defined __stub___getentropy
+        fail fail fail this function is not going to work
+        #endif
+        
+int main() {
+            void *a = (void*) &getentropy;
+            long b = (long) a;
+            return (int) b;
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /tmp/tmpthcm5kx3/testfile.c: In function 'main':
+/tmp/tmpthcm5kx3/testfile.c:9:32: error: 'getentropy' undeclared (first use in this function)
+             void *a = (void*) &getentropy;
+                                ^
+/tmp/tmpthcm5kx3/testfile.c:9:32: note: each undeclared identifier is reported only once for each function it appears in
+
+Running compile:
+Working directory:  /tmp/tmpoujvy2qc
+Command line:  cc /tmp/tmpoujvy2qc/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpoujvy2qc/output.exe -O0 
+
+Code:
+ #include <unistd.h>
+        int main() {
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_getentropy)
+                #error "__builtin_getentropy not found"
+            #endif
+        #elif ! defined(getentropy)
+            /* Check for __builtin_getentropy only if no includes were added to the
+             * prefix above, which means no definition of getentropy can be found.
+             * We would always check for this, but we get false positives on
+             * MSYS2 if we do. Their toolchain is broken, but we can at least
+             * give them a workaround. */
+            #if 0
+                __builtin_getentropy;
+            #else
+                #error "No definition for __builtin_getentropy found in the prefix"
+            #endif
+        #endif
+        }
+Compiler stdout:
+ 
+Compiler stderr:
+ /tmp/tmpoujvy2qc/testfile.c: In function 'main':
+/tmp/tmpoujvy2qc/testfile.c:16:18: error: #error "No definition for __builtin_getentropy found in the prefix"
+                 #error "No definition for __builtin_getentropy found in the prefix"
+                  ^
+
+Checking for function "getentropy" : NO
+Running compile:
+Working directory:  /tmp/tmptxp66yng
+Command line:  cc /tmp/tmptxp66yng/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("getopt.h")
+          #error "Header 'getopt.h' could not be found"
+         #endif
+        #else
+         #include <getopt.h>
+        #endif
+Compiler stdout:
+ typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+typedef int __daddr_t;
+typedef int __key_t;
+typedef int __clockid_t;
+typedef void * __timer_t;
+typedef long int __blksize_t;
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+typedef long int __fsword_t;
+typedef long int __ssize_t;
+typedef long int __syscall_slong_t;
+typedef unsigned long int __syscall_ulong_t;
+typedef __off64_t __loff_t;
+typedef __quad_t *__qaddr_t;
+typedef char *__caddr_t;
+typedef long int __intptr_t;
+typedef unsigned int __socklen_t;
+
+static __inline unsigned int
+__bswap_32 (unsigned int __bsx)
+{
+  return __builtin_bswap32 (__bsx);
+}
+static __inline __uint64_t
+__bswap_64 (__uint64_t __bsx)
+{
+  return __builtin_bswap64 (__bsx);
+}
+enum
+{
+  _ISupper = ((0) < 8 ? ((1 << (0)) << 8) : ((1 << (0)) >> 8)),
+  _ISlower = ((1) < 8 ? ((1 << (1)) << 8) : ((1 << (1)) >> 8)),
+  _ISalpha = ((2) < 8 ? ((1 << (2)) << 8) : ((1 << (2)) >> 8)),
+  _ISdigit = ((3) < 8 ? ((1 << (3)) << 8) : ((1 << (3)) >> 8)),
+  _ISxdigit = ((4) < 8 ? ((1 << (4)) << 8) : ((1 << (4)) >> 8)),
+  _ISspace = ((5) < 8 ? ((1 << (5)) << 8) : ((1 << (5)) >> 8)),
+  _ISprint = ((6) < 8 ? ((1 << (6)) << 8) : ((1 << (6)) >> 8)),
+  _ISgraph = ((7) < 8 ? ((1 << (7)) << 8) : ((1 << (7)) >> 8)),
+  _ISblank = ((8) < 8 ? ((1 << (8)) << 8) : ((1 << (8)) >> 8)),
+  _IScntrl = ((9) < 8 ? ((1 << (9)) << 8) : ((1 << (9)) >> 8)),
+  _ISpunct = ((10) < 8 ? ((1 << (10)) << 8) : ((1 << (10)) >> 8)),
+  _ISalnum = ((11) < 8 ? ((1 << (11)) << 8) : ((1 << (11)) >> 8))
+};
+extern const unsigned short int **__ctype_b_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern const __int32_t **__ctype_tolower_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern const __int32_t **__ctype_toupper_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+
+extern int isalnum (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isalpha (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int iscntrl (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isdigit (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int islower (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isgraph (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isprint (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int ispunct (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isspace (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isupper (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isxdigit (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int tolower (int __c) __attribute__ ((__nothrow__ , __leaf__));
+extern int toupper (int __c) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int isblank (int) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int isascii (int __c) __attribute__ ((__nothrow__ , __leaf__));
+extern int toascii (int __c) __attribute__ ((__nothrow__ , __leaf__));
+extern int _toupper (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int _tolower (int) __attribute__ ((__nothrow__ , __leaf__));
+typedef struct __locale_struct
+{
+  struct __locale_data *__locales[13];
+  const unsigned short int *__ctype_b;
+  const int *__ctype_tolower;
+  const int *__ctype_toupper;
+  const char *__names[13];
+} *__locale_t;
+typedef __locale_t locale_t;
+extern int isalnum_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isalpha_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int iscntrl_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isdigit_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int islower_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isgraph_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isprint_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int ispunct_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isspace_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isupper_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isxdigit_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isblank_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int __tolower_l (int __c, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+extern int tolower_l (int __c, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+extern int __toupper_l (int __c, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+extern int toupper_l (int __c, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+
+extern char *optarg;
+extern int optind;
+extern int opterr;
+extern int optopt;
+struct option
+{
+  const char *name;
+  int has_arg;
+  int *flag;
+  int val;
+};
+extern int getopt (int ___argc, char *const *___argv, const char *__shortopts)
+       __attribute__ ((__nothrow__ , __leaf__));
+extern int getopt_long (int ___argc, char *const *___argv,
+   const char *__shortopts,
+          const struct option *__longopts, int *__longind)
+       __attribute__ ((__nothrow__ , __leaf__));
+extern int getopt_long_only (int ___argc, char *const *___argv,
+        const char *__shortopts,
+               const struct option *__longopts, int *__longind)
+       __attribute__ ((__nothrow__ , __leaf__));
+
+Compiler stderr:
+ 
+Has header "getopt.h": YES
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_eal/rte_eal_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_eal: Defining dependency "eal"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_ring/rte_ring_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_ring: Defining dependency "ring"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_mempool/rte_mempool_version.map
+--- stdout ---
+DPDK_20.0 {
+DPDK_21 {
+
+--- stderr ---
+
+
+Message: lib/librte_mempool: Defining dependency "mempool"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_mbuf/rte_mbuf_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_mbuf: Defining dependency "mbuf"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_net/rte_net_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_net: Defining dependency "net"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_meter/rte_meter_version.map
+--- stdout ---
+DPDK_20.0 {
+DPDK_21 {
+
+--- stderr ---
+
+
+Message: lib/librte_meter: Defining dependency "meter"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_ethdev/rte_ethdev_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_ethdev: Defining dependency "ethdev"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_pci/rte_pci_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_pci: Defining dependency "pci"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_cmdline/rte_cmdline_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_cmdline: Defining dependency "cmdline"
+Determining dependency 'jansson' with pkg-config executable '/usr/bin/pkg-config'
+Called `/usr/bin/pkg-config --modversion jansson` -> 1
+
+Dependency jansson found: NO
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_hash/rte_hash_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_hash: Defining dependency "hash"
+Running compile:
+Working directory:  /tmp/tmpq1ti0jed
+Command line:  cc /tmp/tmpq1ti0jed/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpq1ti0jed/output.obj -fPIC -Wno-error -O0 -mavx2 
+
+Code:
+ int i;
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler for C supports arguments -mavx2: YES
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_compressdev/rte_compressdev_version.map
+--- stdout ---
+
+--- stderr ---
+
+
+Message: lib/librte_compressdev: Defining dependency "compressdev"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_cryptodev/rte_cryptodev_version.map
+--- stdout ---
+DPDK_20.0 {
+DPDK_21 {
+
+--- stderr ---
+
+
+Message: lib/librte_cryptodev: Defining dependency "cryptodev"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_reorder/rte_reorder_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_reorder: Defining dependency "reorder"
+Running compile:
+Working directory:  /tmp/tmp33mvyb7z
+Command line:  cc /tmp/tmp33mvyb7z/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O0 
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("linux/userfaultfd.h")
+          #error "Header 'linux/userfaultfd.h' could not be found"
+         #endif
+        #else
+         #include <linux/userfaultfd.h>
+        #endif
+Compiler stdout:
+ typedef __signed__ char __s8;
+typedef unsigned char __u8;
+typedef __signed__ short __s16;
+typedef unsigned short __u16;
+typedef __signed__ int __s32;
+typedef unsigned int __u32;
+__extension__ typedef __signed__ long long __s64;
+__extension__ typedef unsigned long long __u64;
+typedef struct {
+ unsigned long fds_bits[1024 / (8 * sizeof(long))];
+} __kernel_fd_set;
+typedef void (*__kernel_sighandler_t)(int);
+typedef int __kernel_key_t;
+typedef int __kernel_mqd_t;
+typedef unsigned short __kernel_old_uid_t;
+typedef unsigned short __kernel_old_gid_t;
+typedef unsigned long __kernel_old_dev_t;
+typedef long __kernel_long_t;
+typedef unsigned long __kernel_ulong_t;
+typedef __kernel_ulong_t __kernel_ino_t;
+typedef unsigned int __kernel_mode_t;
+typedef int __kernel_pid_t;
+typedef int __kernel_ipc_pid_t;
+typedef unsigned int __kernel_uid_t;
+typedef unsigned int __kernel_gid_t;
+typedef __kernel_long_t __kernel_suseconds_t;
+typedef int __kernel_daddr_t;
+typedef unsigned int __kernel_uid32_t;
+typedef unsigned int __kernel_gid32_t;
+typedef __kernel_ulong_t __kernel_size_t;
+typedef __kernel_long_t __kernel_ssize_t;
+typedef __kernel_long_t __kernel_ptrdiff_t;
+typedef struct {
+ int val[2];
+} __kernel_fsid_t;
+typedef __kernel_long_t __kernel_off_t;
+typedef long long __kernel_loff_t;
+typedef __kernel_long_t __kernel_time_t;
+typedef __kernel_long_t __kernel_clock_t;
+typedef int __kernel_timer_t;
+typedef int __kernel_clockid_t;
+typedef char * __kernel_caddr_t;
+typedef unsigned short __kernel_uid16_t;
+typedef unsigned short __kernel_gid16_t;
+typedef __u16 __le16;
+typedef __u16 __be16;
+typedef __u32 __le32;
+typedef __u32 __be32;
+typedef __u64 __le64;
+typedef __u64 __be64;
+typedef __u16 __sum16;
+typedef __u32 __wsum;
+struct uffd_msg {
+ __u8 event;
+ __u8 reserved1;
+ __u16 reserved2;
+ __u32 reserved3;
+ union {
+  struct {
+   __u64 flags;
+   __u64 address;
+   union {
+    __u32 ptid;
+   } feat;
+  } pagefault;
+  struct {
+   __u32 ufd;
+  } fork;
+  struct {
+   __u64 from;
+   __u64 to;
+   __u64 len;
+  } remap;
+  struct {
+   __u64 start;
+   __u64 end;
+  } remove;
+  struct {
+   __u64 reserved1;
+   __u64 reserved2;
+   __u64 reserved3;
+  } reserved;
+ } arg;
+} __attribute__((packed));
+struct uffdio_api {
+ __u64 api;
+ __u64 features;
+ __u64 ioctls;
+};
+struct uffdio_range {
+ __u64 start;
+ __u64 len;
+};
+struct uffdio_register {
+ struct uffdio_range range;
+ __u64 mode;
+ __u64 ioctls;
+};
+struct uffdio_copy {
+ __u64 dst;
+ __u64 src;
+ __u64 len;
+ __u64 mode;
+ __s64 copy;
+};
+struct uffdio_zeropage {
+ struct uffdio_range range;
+ __u64 mode;
+ __s64 zeropage;
+};
+
+Compiler stderr:
+ 
+Has header "linux/userfaultfd.h": YES
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/lib/librte_vhost/rte_vhost_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: lib/librte_vhost: Defining dependency "vhost"
+Determining dependency 'libelf' with pkg-config executable '/usr/bin/pkg-config'
+Called `/usr/bin/pkg-config --modversion libelf` -> 0
+0.176
+Called `/usr/bin/pkg-config --cflags libelf` -> 0
+
+Called `/usr/bin/pkg-config libelf --libs` -> 0
+-L/usr/lib64 -lelf
+Called `/usr/bin/pkg-config libelf --libs` -> 0
+-lelf
+Running compile:
+Working directory:  /tmp/tmprshl4dgg
+Command line:  cc /tmp/tmprshl4dgg/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmprshl4dgg/output.obj -fPIC -Wno-error -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-redhat-linux/4.8.5/
+programs: =/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../x86_64-redhat-linux/bin/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../x86_64-redhat-linux/bin/
+libraries: =/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../x86_64-redhat-linux/lib/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../x86_64-redhat-linux/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/x86_64-redhat-linux/4.8.5/:/lib/../lib64/:/usr/lib/x86_64-redhat-linux/4.8.5/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../x86_64-redhat-linux/lib/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Native dependency libelf found: YES 0.176
+Running command: /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/buildtools/list-dir-globs.py baseband,baseband/fpga_5gnr_fec,baseband/fpga_lte_fec,baseband/null,baseband/turbo_sw,bus/dpaa,bus/dpaa/base,bus/dpaa/base/fman,bus/dpaa/base/qbman,bus/dpaa/include,bus/fslmc,bus/fslmc/mc,bus/fslmc/portal,bus/fslmc/qbman,bus/fslmc/qbman/include,bus/ifpga,bus/pci/bsd,bus/pci/linux,bus/vmbus,bus/vmbus/linux,common,common/cpt,common/dpaax,common/dpaax/caamflib,common/dpaax/caamflib/desc,common/dpaax/caamflib/rta,common/iavf,common/mlx5,common/mvep,common/octeontx,common/octeontx2,common/octeontx2/hw,common/qat,common/qat/qat_adf,compress,compress/isal,compress/octeontx,compress/octeontx/include,compress/qat,compress/zlib,crypto,crypto/aesni_gcm,crypto/aesni_mb,crypto/armv8,crypto/caam_jr,crypto/ccp,crypto/dpaa2_sec,crypto/dpaa2_sec/mc,crypto/dpaa_sec,crypto/kasumi,crypto/mvsam,crypto/nitrox,crypto/null,crypto/octeontx,crypto/octeontx2,crypto/openssl,crypto/qat,crypto/scheduler,crypto/snow3g,crypto/virtio,crypto/zuc,event,event/dpaa,event/dpaa2,event/dsw,event/octeontx,event/octeontx2,event/opdl,event/skeleton,event/sw,mempool,mempool/bucket,mempool/dpaa,mempool/dpaa2,mempool/octeontx,mempool/octeontx2,mempool/stack,net,net/af_packet,net/af_xdp,net/ark,net/atlantic,net/atlantic/hw_atl,net/avp,net/axgbe,net/bnx2x,net/bnxt,net/bnxt/tf_core,net/bnxt/tf_ulp,net/bonding,net/cxgbe,net/cxgbe/base,net/dpaa,net/dpaa2,net/dpaa2/base,net/dpaa2/mc,net/e1000,net/e1000/base,net/ena,net/ena/base,net/ena/base/ena_defs,net/enetc,net/enetc/base,net/enic,net/enic/base,net/failsafe,net/fm10k,net/fm10k/base,net/hinic,net/hinic/base,net/hns3,net/i40e,net/i40e/base,net/iavf,net/ice,net/ice/base,net/igc,net/igc/base,net/ionic,net/ipn3ke,net/ixgbe,net/ixgbe/base,net/kni,net/liquidio,net/liquidio/base,net/memif,net/mlx4,net/mlx5,net/mvneta,net/mvpp2,net/netvsc,net/nfb,net/nfp,net/nfp/nfpcore,net/nfp/nfpcore/nfp-common,net/nfp/nfpcore/nfp6000,net/null,net/octeontx,net/octeontx/base,net/octeontx2,net/pcap,net/pfe,net/pfe/base,net/pfe/base/cbus,net/qede,net/qede/base,net/ring,net/sfc,net/sfc/base,net/softnic,net/szedata2,net/tap,net/thunderx,net/thunderx/base,net/vdev_netvsc,net/vhost,net/virtio,net/virtio/virtio_user,net/vmxnet3,net/vmxnet3/base,raw,raw/dpaa2_cmdif,raw/dpaa2_qdma,raw/ifpga,raw/ifpga/base,raw/ifpga/base/osdep_raw,raw/ifpga/base/osdep_rte,raw/ioat,raw/ntb,raw/octeontx2_dma,raw/octeontx2_ep,raw/skeleton,vdpa,vdpa/ifc,vdpa/ifc/base,vdpa/mlx5
+--- stdout ---
+baseband
+baseband/fpga_5gnr_fec
+baseband/fpga_lte_fec
+baseband/null
+baseband/turbo_sw
+bus/dpaa
+bus/dpaa/base
+bus/dpaa/base/fman
+bus/dpaa/base/qbman
+bus/dpaa/include
+bus/fslmc
+bus/fslmc/mc
+bus/fslmc/portal
+bus/fslmc/qbman
+bus/fslmc/qbman/include
+bus/ifpga
+bus/pci/bsd
+bus/pci/linux
+bus/vmbus
+bus/vmbus/linux
+common
+common/cpt
+common/dpaax
+common/dpaax/caamflib
+common/dpaax/caamflib/desc
+common/dpaax/caamflib/rta
+common/iavf
+common/mlx5
+common/mvep
+common/octeontx
+common/octeontx2
+common/octeontx2/hw
+common/qat
+common/qat/qat_adf
+compress
+compress/isal
+compress/octeontx
+compress/octeontx/include
+compress/qat
+compress/zlib
+crypto
+crypto/aesni_gcm
+crypto/aesni_mb
+crypto/armv8
+crypto/caam_jr
+crypto/ccp
+crypto/dpaa2_sec
+crypto/dpaa2_sec/mc
+crypto/dpaa_sec
+crypto/kasumi
+crypto/mvsam
+crypto/nitrox
+crypto/null
+crypto/octeontx
+crypto/octeontx2
+crypto/openssl
+crypto/qat
+crypto/scheduler
+crypto/snow3g
+crypto/virtio
+crypto/zuc
+event
+event/dpaa
+event/dpaa2
+event/dsw
+event/octeontx
+event/octeontx2
+event/opdl
+event/skeleton
+event/sw
+mempool
+mempool/bucket
+mempool/dpaa
+mempool/dpaa2
+mempool/octeontx
+mempool/octeontx2
+mempool/stack
+net
+net/af_packet
+net/af_xdp
+net/ark
+net/atlantic
+net/atlantic/hw_atl
+net/avp
+net/axgbe
+net/bnx2x
+net/bnxt
+net/bnxt/tf_core
+net/bnxt/tf_ulp
+net/bonding
+net/cxgbe
+net/cxgbe/base
+net/dpaa
+net/dpaa2
+net/dpaa2/base
+net/dpaa2/mc
+net/e1000
+net/e1000/base
+net/ena
+net/ena/base
+net/ena/base/ena_defs
+net/enetc
+net/enetc/base
+net/enic
+net/enic/base
+net/failsafe
+net/fm10k
+net/fm10k/base
+net/hinic
+net/hinic/base
+net/hns3
+net/i40e
+net/i40e/base
+net/iavf
+net/ice
+net/ice/base
+net/igc
+net/igc/base
+net/ionic
+net/ipn3ke
+net/ixgbe
+net/ixgbe/base
+net/kni
+net/liquidio
+net/liquidio/base
+net/memif
+net/mlx4
+net/mlx5
+net/mvneta
+net/mvpp2
+net/netvsc
+net/nfb
+net/nfp
+net/nfp/nfpcore
+net/nfp/nfpcore/nfp-common
+net/nfp/nfpcore/nfp6000
+net/null
+net/octeontx
+net/octeontx/base
+net/octeontx2
+net/pcap
+net/pfe
+net/pfe/base
+net/pfe/base/cbus
+net/qede
+net/qede/base
+net/ring
+net/sfc
+net/sfc/base
+net/softnic
+net/szedata2
+net/tap
+net/thunderx
+net/thunderx/base
+net/vdev_netvsc
+net/vhost
+net/virtio
+net/virtio/virtio_user
+net/vmxnet3
+net/vmxnet3/base
+raw
+raw/dpaa2_cmdif
+raw/dpaa2_qdma
+raw/ifpga
+raw/ifpga/base
+raw/ifpga/base/osdep_raw
+raw/ifpga/base/osdep_rte
+raw/ioat
+raw/ntb
+raw/octeontx2_dma
+raw/octeontx2_ep
+raw/skeleton
+vdpa
+vdpa/ifc
+vdpa/ifc/base
+vdpa/mlx5
+
+--- stderr ---
+
+
+Using cached compile:
+Cached command line:  cc /tmp/tmpyk15rp0v/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpyk15rp0v/output.obj -fPIC -Wno-error -O0 -Wno-format-truncation -Wformat-truncation 
+
+Code:
+ int i;
+
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ cc: error: unrecognized command line option '-Wformat-truncation'
+
+Compiler for C supports arguments -Wno-format-truncation -Wformat-truncation: NO
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/drivers/bus/pci/rte_bus_pci_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: drivers/bus/pci: Defining dependency "bus_pci"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/drivers/bus/vdev/rte_bus_vdev_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: drivers/bus/vdev: Defining dependency "bus_vdev"
+Running command: /usr/bin/grep ^DPDK_ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/drivers/mempool/ring/rte_mempool_ring_version.map
+--- stdout ---
+DPDK_20.0 {
+
+--- stderr ---
+
+
+Message: drivers/mempool/ring: Defining dependency "mempool_ring"
+Program doxygen found: YES (/usr/bin/doxygen)
+Program generate_doxygen.sh found: YES (/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/doc/api/generate_doxygen.sh)
+Program generate_examples.sh found: YES (/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/doc/api/generate_examples.sh)
+Program doxy-html-custom.sh found: YES (/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/doc/api/doxy-html-custom.sh)
+Configuring doxy-api.conf using configuration
+Program sphinx-build found: NO
+Running compile:
+Working directory:  /tmp/tmptdtkk1ti
+Command line:  cc /tmp/tmptdtkk1ti/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmptdtkk1ti/output.exe -O0 -Wl,--start-group -lexecinfo -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(int argc, char **argv) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ /usr/bin/ld: cannot find -lexecinfo
+collect2: error: ld returned 1 exit status
+
+Library execinfo found: NO
+Configuring rte_build_config.h using configuration
+Message: 
+=================
+Libraries Enabled
+=================
+
+libs:
+	kvargs, telemetry, eal, ring, mempool, mbuf, net, meter, 
+	ethdev, pci, cmdline, hash, compressdev, cryptodev, reorder, vhost, 
+	
+
+Message: 
+===============
+Drivers Enabled
+===============
+
+common:
+	
+bus:
+	pci, vdev, 
+mempool:
+	ring, 
+net:
+	
+raw:
+	
+crypto:
+	
+compress:
+	
+vdpa:
+	
+event:
+	
+baseband:
+	
+
+Message: 
+=================
+Content Skipped
+=================
+
+libs:
+	rcu:	not needed by SPDK
+	metrics:	not needed by SPDK
+	timer:	not needed by SPDK
+	acl:	not needed by SPDK
+	bbdev:	not needed by SPDK
+	bitratestats:	not needed by SPDK
+	cfgfile:	not needed by SPDK
+	distributor:	not needed by SPDK
+	efd:	not needed by SPDK
+	eventdev:	not needed by SPDK
+	gro:	not needed by SPDK
+	gso:	not needed by SPDK
+	ip_frag:	not needed by SPDK
+	jobstats:	not needed by SPDK
+	kni:	not needed by SPDK
+	latencystats:	not needed by SPDK
+	lpm:	not needed by SPDK
+	member:	not needed by SPDK
+	power:	not needed by SPDK
+	pdump:	not needed by SPDK
+	rawdev:	not needed by SPDK
+	rib:	not needed by SPDK
+	sched:	not needed by SPDK
+	security:	not needed by SPDK
+	stack:	not needed by SPDK
+	ipsec:	not needed by SPDK
+	fib:	not needed by SPDK
+	port:	not needed by SPDK
+	table:	not needed by SPDK
+	pipeline:	not needed by SPDK
+	flow_classify:	not needed by SPDK
+	bpf:	not needed by SPDK
+	graph:	not needed by SPDK
+	node:	not needed by SPDK
+	
+drivers:
+	common/cpt:	Explicitly disabled via build config
+	common/dpaax:	Explicitly disabled via build config
+	common/iavf:	Explicitly disabled via build config
+	common/mlx5:	Explicitly disabled via build config
+	common/mvep:	Explicitly disabled via build config
+	common/octeontx:	Explicitly disabled via build config
+	common/octeontx2:	Explicitly disabled via build config
+	common/qat:	Explicitly disabled via build config
+	bus/dpaa:	Explicitly disabled via build config
+	bus/fslmc:	Explicitly disabled via build config
+	bus/ifpga:	Explicitly disabled via build config
+	bus/vmbus:	Explicitly disabled via build config
+	mempool/bucket:	Explicitly disabled via build config
+	mempool/dpaa:	Explicitly disabled via build config
+	mempool/dpaa2:	Explicitly disabled via build config
+	mempool/octeontx:	Explicitly disabled via build config
+	mempool/octeontx2:	Explicitly disabled via build config
+	mempool/stack:	Explicitly disabled via build config
+	net/af_packet:	Explicitly disabled via build config
+	net/af_xdp:	Explicitly disabled via build config
+	net/ark:	Explicitly disabled via build config
+	net/atlantic:	Explicitly disabled via build config
+	net/avp:	Explicitly disabled via build config
+	net/axgbe:	Explicitly disabled via build config
+	net/bonding:	Explicitly disabled via build config
+	net/bnx2x:	Explicitly disabled via build config
+	net/bnxt:	Explicitly disabled via build config
+	net/cxgbe:	Explicitly disabled via build config
+	net/dpaa:	Explicitly disabled via build config
+	net/dpaa2:	Explicitly disabled via build config
+	net/e1000:	Explicitly disabled via build config
+	net/ena:	Explicitly disabled via build config
+	net/enetc:	Explicitly disabled via build config
+	net/enic:	Explicitly disabled via build config
+	net/failsafe:	Explicitly disabled via build config
+	net/fm10k:	Explicitly disabled via build config
+	net/i40e:	Explicitly disabled via build config
+	net/hinic:	Explicitly disabled via build config
+	net/hns3:	Explicitly disabled via build config
+	net/iavf:	Explicitly disabled via build config
+	net/ice:	Explicitly disabled via build config
+	net/igc:	Explicitly disabled via build config
+	net/ipn3ke:	Explicitly disabled via build config
+	net/ixgbe:	Explicitly disabled via build config
+	net/kni:	Explicitly disabled via build config
+	net/liquidio:	Explicitly disabled via build config
+	net/memif:	Explicitly disabled via build config
+	net/mlx4:	Explicitly disabled via build config
+	net/mlx5:	Explicitly disabled via build config
+	net/mvneta:	Explicitly disabled via build config
+	net/mvpp2:	Explicitly disabled via build config
+	net/netvsc:	Explicitly disabled via build config
+	net/nfb:	Explicitly disabled via build config
+	net/nfp:	Explicitly disabled via build config
+	net/null:	Explicitly disabled via build config
+	net/octeontx:	Explicitly disabled via build config
+	net/octeontx2:	Explicitly disabled via build config
+	net/pcap:	Explicitly disabled via build config
+	net/pfe:	Explicitly disabled via build config
+	net/qede:	Explicitly disabled via build config
+	net/ring:	Explicitly disabled via build config
+	net/sfc:	Explicitly disabled via build config
+	net/softnic:	Explicitly disabled via build config
+	net/szedata2:	Explicitly disabled via build config
+	net/tap:	Explicitly disabled via build config
+	net/thunderx:	Explicitly disabled via build config
+	net/vdev_netvsc:	Explicitly disabled via build config
+	net/vhost:	Explicitly disabled via build config
+	net/virtio:	Explicitly disabled via build config
+	net/vmxnet3:	Explicitly disabled via build config
+	raw/dpaa2_cmdif:	Explicitly disabled via build config
+	raw/dpaa2_qdma:	Explicitly disabled via build config
+	raw/ifpga:	Explicitly disabled via build config
+	raw/ioat:	Explicitly disabled via build config
+	raw/ntb:	Explicitly disabled via build config
+	raw/octeontx2_dma:	Explicitly disabled via build config
+	raw/octeontx2_ep:	Explicitly disabled via build config
+	raw/skeleton:	Explicitly disabled via build config
+	crypto/aesni_gcm:	Explicitly disabled via build config
+	crypto/aesni_mb:	Explicitly disabled via build config
+	crypto/armv8:	Explicitly disabled via build config
+	crypto/caam_jr:	Explicitly disabled via build config
+	crypto/ccp:	Explicitly disabled via build config
+	crypto/dpaa_sec:	Explicitly disabled via build config
+	crypto/dpaa2_sec:	Explicitly disabled via build config
+	crypto/kasumi:	Explicitly disabled via build config
+	crypto/mvsam:	Explicitly disabled via build config
+	crypto/nitrox:	Explicitly disabled via build config
+	crypto/null:	Explicitly disabled via build config
+	crypto/octeontx:	Explicitly disabled via build config
+	crypto/octeontx2:	Explicitly disabled via build config
+	crypto/openssl:	Explicitly disabled via build config
+	crypto/qat:	Explicitly disabled via build config
+	crypto/scheduler:	Explicitly disabled via build config
+	crypto/snow3g:	Explicitly disabled via build config
+	crypto/virtio:	Explicitly disabled via build config
+	crypto/zuc:	Explicitly disabled via build config
+	compress/isal:	Explicitly disabled via build config
+	compress/octeontx:	Explicitly disabled via build config
+	compress/qat:	Explicitly disabled via build config
+	compress/zlib:	Explicitly disabled via build config
+	vdpa/ifc:	Explicitly disabled via build config
+	vdpa/mlx5:	Explicitly disabled via build config
+	event/dpaa:	Explicitly disabled via build config
+	event/dpaa2:	Explicitly disabled via build config
+	event/octeontx2:	Explicitly disabled via build config
+	event/opdl:	Explicitly disabled via build config
+	event/skeleton:	Explicitly disabled via build config
+	event/sw:	Explicitly disabled via build config
+	event/dsw:	Explicitly disabled via build config
+	event/octeontx:	Explicitly disabled via build config
+	baseband/null:	Explicitly disabled via build config
+	baseband/turbo_sw:	Explicitly disabled via build config
+	baseband/fpga_lte_fec:	Explicitly disabled via build config
+	baseband/fpga_5gnr_fec:	Explicitly disabled via build config
+	
+
+Build targets in project: 87
+Found ninja-1.7.2 at /usr/bin/ninja

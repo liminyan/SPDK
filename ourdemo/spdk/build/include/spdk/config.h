@@ -7,8 +7,8 @@
 #undef SPDK_CONFIG_CRYPTO
 #undef SPDK_CONFIG_CUSTOMOCF
 #undef SPDK_CONFIG_DEBUG
-#define SPDK_CONFIG_DPDK_DIR /global/home/users/liyiyuan/ourdemo/spdk/dpdk/build
-#define SPDK_CONFIG_ENV /global/home/users/liyiyuan/ourdemo/spdk/lib/env_dpdk
+#define SPDK_CONFIG_DPDK_DIR /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/build
+#define SPDK_CONFIG_ENV /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/lib/env_dpdk
 #define SPDK_CONFIG_EXAMPLES 1
 #undef SPDK_CONFIG_FC
 #define SPDK_CONFIG_FC_PATH 
@@ -31,10 +31,10 @@
 #define SPDK_CONFIG_PREFIX /usr/local
 #undef SPDK_CONFIG_RAID5
 #undef SPDK_CONFIG_RBD
-#define SPDK_CONFIG_RDMA 1
+#undef SPDK_CONFIG_RDMA
 #define SPDK_CONFIG_RDMA_PROV verbs
-#define SPDK_CONFIG_RDMA_SEND_WITH_INVAL 1
-#define SPDK_CONFIG_RDMA_SET_ACK_TIMEOUT 1
+#undef SPDK_CONFIG_RDMA_SEND_WITH_INVAL
+#undef SPDK_CONFIG_RDMA_SET_ACK_TIMEOUT
 #undef SPDK_CONFIG_REDUCE
 #undef SPDK_CONFIG_SHARED
 #define SPDK_CONFIG_TESTS 1

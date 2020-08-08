@@ -78,11 +78,11 @@ CONFIG_EXAMPLES?=y
 
 # Directory that contains the desired SPDK environment library.
 # By default, this is implemented using DPDK.
-CONFIG_ENV?=/global/home/users/liyiyuan/ourdemo/spdk/lib/env_dpdk
+CONFIG_ENV?=/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/lib/env_dpdk
 
 # This directory should contain 'include' and 'lib' directories for your DPDK
 # installation.
-CONFIG_DPDK_DIR?=/global/home/users/liyiyuan/ourdemo/spdk/dpdk/build
+CONFIG_DPDK_DIR?=/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/build
 
 # Build SPDK FIO plugin. Requires CONFIG_FIO_SOURCE_DIR set to a valid
 # fio source code directory.
@@ -94,9 +94,9 @@ CONFIG_FIO_SOURCE_DIR?=/usr/src/fio
 
 # Enable RDMA support for the NVMf target.
 # Requires ibverbs development libraries.
-CONFIG_RDMA?=y
-CONFIG_RDMA_SEND_WITH_INVAL?=y
-CONFIG_RDMA_SET_ACK_TIMEOUT?=y
+CONFIG_RDMA?=n
+CONFIG_RDMA_SEND_WITH_INVAL?=n
+CONFIG_RDMA_SET_ACK_TIMEOUT?=n
 CONFIG_RDMA_PROV?=verbs
 
 # Enable NVMe Character Devices.

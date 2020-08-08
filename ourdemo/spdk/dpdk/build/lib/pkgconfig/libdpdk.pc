@@ -1,0 +1,12 @@
+prefix=/global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/dpdk/build
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: DPDK
+Description: The Data Plane Development Kit (DPDK).
+Note that CFLAGS might contain an -march flag higher than typical baseline.
+This is required for a number of static inline functions in the public headers.
+Version: 20.05.0
+Libs: -L${libdir} -lrte_vhost -lrte_reorder -lrte_cryptodev -lrte_compressdev -lrte_hash -lrte_cmdline -lrte_pci -lrte_ethdev -lrte_meter -lrte_net -lrte_mbuf -lrte_mempool -lrte_ring -lrte_eal -lrte_telemetry -lrte_kvargs
+Libs.private: -L${libdir} -lrte_kvargs -lrte_telemetry -lrte_eal -lrte_pci -lrte_ring -lrte_mempool -lrte_mbuf -lrte_net -lrte_meter -lrte_ethdev -lrte_cryptodev -lrte_hash -Wl,--whole-archive -lrte_bus_pci -lrte_bus_vdev -lrte_mempool_ring -Wl,--no-whole-archive -lrte_vhost -lrte_reorder -lrte_compressdev -lrte_cmdline -Wl,-Bdynamic -pthread -lm -ldl -lnuma
+Cflags: -I${includedir} -I${includedir} -include rte_config.h -march=native
