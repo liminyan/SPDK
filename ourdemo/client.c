@@ -247,6 +247,49 @@ static ucs_status_t start_client(ucp_worker_h ucp_worker, const char *ip, ucp_ep
     return status;
 }
 
+static void print_result(int is_server, char *recv_message, int current_iter){
+    if (is_server) {
+        printf("Server: iteration #%d\n", (current_iter + 1));
+        printf("UCX data message was received\n");
+        printf("\n\n----- UCP TEST SUCCESS -------\n\n");
+        printf("%s", recv_message);
+        printf("\n\n------------------------------\n\n");
+    } else {
+        printf("Client: iteration #%d\n", (current_iter + 1));
+        printf("\n\n-----------------------------------------\n\n");
+        printf("Client sent message: \n%s.\nlength: %ld\n",
+               test_message, TEST_STRING_LEN);
+        printf("\n-----------------------------------------\n\n");
+    }
+}
+
+/**
+ * Progress the request until it completes.
+ */
+static ucs_status_t request_wait(ucp_worker_h ucp_worker, test_req_t *request){
+    ucs_status_t status;
+
+    /* if operation was completed immediately */
+    if (request == NULL) {
+        return UCS_OK;
+    }
+    
+    if (UCS_PTR_IS_ERR(request)) {
+        return UCS_PTR_STATUS(request);
+    }
+    
+    while (request->complete == 0) {
+        ucp_worker_progress(ucp_worker);
+    }
+    status = ucp_request_check_status(request);
+
+    /* This request may be reused so initialize it for next time */
+    request->complete = 0;
+    ucp_request_free(request);
+
+    return status;
+}
+
 static int request_finalize(ucp_worker_h ucp_worker, test_req_t *request, int is_server, char *recv_message, int current_iter){
     ucs_status_t status;
     int ret = 0;
