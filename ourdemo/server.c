@@ -1,4 +1,21 @@
 #include <ucp/api/ucp.h>
+#include <string.h>    /* memset */
+#include <arpa/inet.h> /* inet_addr */
+#include <unistd.h>    /* getopt */
+#include <stdlib.h>    /* atoi */
+
+#define TEST_STRING_LEN        sizeof(test_message)
+#define DEFAULT_PORT           13337
+#define IP_STRING_LEN          50
+#define PORT_STRING_LEN        8
+#define TAG                    0xCAFE
+#define COMM_TYPE_DEFAULT      "STREAM"
+#define PRINT_INTERVAL         2000
+#define DEFAULT_NUM_ITERATIONS 1
+
+const  char test_message[]           = "UCX Client-Server Hello World";
+static uint16_t server_port          = DEFAULT_PORT;
+static int num_iterations            = DEFAULT_NUM_ITERATIONS;
 
 typedef struct
 {
