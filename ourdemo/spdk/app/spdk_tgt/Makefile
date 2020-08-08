@@ -34,7 +34,6 @@
 SPDK_ROOT_DIR := $(abspath $(CURDIR)/../..)
 include $(SPDK_ROOT_DIR)/mk/spdk.common.mk
 include $(SPDK_ROOT_DIR)/mk/spdk.modules.mk
-
 APP = spdk_tgt
 
 C_SRCS := spdk_tgt.c
@@ -68,6 +67,7 @@ SYS_LIBS += -L$(CONFIG_FC_PATH)
 endif
 SYS_LIBS += -lufc
 endif
+
 
 include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
 

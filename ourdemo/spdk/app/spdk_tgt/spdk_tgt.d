@@ -11,7 +11,16 @@ spdk_tgt.o: spdk_tgt.c \
  /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/include/spdk/log.h \
  /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/include/spdk/thread.h \
  /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/include/spdk/vhost.h \
- /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/include/spdk/json.h
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/include/spdk/json.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucp/api/ucp.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucp/api/ucp_def.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/type/status.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/sys/compiler_def.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/config/types.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucp/api/ucp_compat.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucp/api/ucp_version.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/type/thread_mode.h \
+ /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/type/cpu_set.h
 
 /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/include/spdk/stdinc.h:
 
@@ -38,3 +47,21 @@ spdk_tgt.o: spdk_tgt.c \
 /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/include/spdk/vhost.h:
 
 /global/home/users/rdmaworkshop12/SPDK/ourdemo/spdk/include/spdk/json.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucp/api/ucp.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucp/api/ucp_def.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/type/status.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/sys/compiler_def.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/config/types.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucp/api/ucp_compat.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucp/api/ucp_version.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/type/thread_mode.h:
+
+/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src/ucs/type/cpu_set.h:
