@@ -56,14 +56,6 @@ static void err_cb(void *arg, ucp_ep_h ep, ucs_status_t status)
            status, ucs_status_string(status));
 }
 
-void set_listen_addr(const char *address_str, struct sockaddr_in *listen_addr)
-{
-    memset(listen_addr, 0, sizeof(struct sockaddr_in));
-    listen_addr->sin_family      = AF_INET;
-    listen_addr->sin_addr.s_addr = (address_str) ? inet_addr(address_str) : INADDR_ANY;
-    listen_addr->sin_port        = htons(server_port);
-}
-
 typedef struct
 {
     ucp_worker_h ucp_data_worker;
@@ -202,12 +194,12 @@ mire_struct start_server()
     ucp_context_h ucp_context;
     ucp_worker_h  ucp_worker;
     ucp_worker_h  ucp_data_worker;
-    int ret = init_context(&ucp_context, &ucp_worker, send_recv_type);
+    int ret = init_context(&ucp_context, &ucp_worker);
     ret = init_worker(ucp_context, &ucp_data_worker);
     context.conn_request = NULL;
     struct sockaddr_in listen_addr;
     set_listen_addr(NULL, &listen_addr);
-    status = server_listen(ucp_worker, &context, &context.listener, listen_addr);
+    status = server_listen(ucp_worker, &context, &context.listener, NULL);
 
     ucp_listener_params_t params;
     params.field_mask         = UCP_LISTENER_PARAM_FIELD_SOCK_ADDR |
