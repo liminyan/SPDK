@@ -109,16 +109,16 @@ main(int argc, char **argv)
 	struct spdk_app_opts opts = {};
 	int rc;
 	printf("hi master\n");
-	spdk_app_opts_init(&opts);
-	opts.name = "spdk_tgt";
-	if ((rc = spdk_app_parse_args(argc, argv, &opts, g_spdk_tgt_get_opts_string,
-				      NULL, spdk_tgt_parse_arg, spdk_tgt_usage)) !=
-	    SPDK_APP_PARSE_ARGS_SUCCESS) {
-		return rc;
-	}
+	// spdk_app_opts_init(&opts);
+	// opts.name = "spdk_tgt";
+	// if ((rc = spdk_app_parse_args(argc, argv, &opts, g_spdk_tgt_get_opts_string,
+	// 			      NULL, spdk_tgt_parse_arg, spdk_tgt_usage)) !=
+	//     SPDK_APP_PARSE_ARGS_SUCCESS) {
+	// 	return rc;
+	// }
 
-	rc = spdk_app_start(&opts, spdk_tgt_started, NULL);
-	spdk_app_fini();
+	// rc = spdk_app_start(&opts, spdk_tgt_started, NULL);
+	// spdk_app_fini();
 
 	return rc;
 }
