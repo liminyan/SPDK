@@ -17,6 +17,53 @@ const  char test_message[]           = "UCX Client-Server Hello World";
 static uint16_t server_port          = DEFAULT_PORT;
 static int num_iterations            = DEFAULT_NUM_ITERATIONS;
 
+typedef struct ucx_server_ctx {
+    volatile ucp_conn_request_h conn_request;
+    ucp_listener_h              listener;
+} ucx_server_ctx_t;
+
+typedef struct test_req {
+    int complete;
+} test_req_t;
+
+
+static void usage(void);
+
+static void tag_recv_cb(void *request, ucs_status_t status,
+                        const ucp_tag_recv_info_t *info, void *user_data)
+{
+    test_req_t *ctx = user_data;
+    ctx->complete = 1;
+}
+
+static void
+stream_recv_cb(void *request, ucs_status_t status, size_t length,
+               void *user_data)
+{
+    test_req_t *ctx = user_data;
+    ctx->complete = 1;
+}
+
+static void send_cb(void *request, ucs_status_t status, void *user_data)
+{
+    test_req_t *ctx = user_data;
+    ctx->complete = 1;
+}
+
+static void err_cb(void *arg, ucp_ep_h ep, ucs_status_t status)
+{
+    printf("error handling callback was invoked with status %d (%s)\n",
+           status, ucs_status_string(status));
+}
+
+void set_listen_addr(const char *address_str, struct sockaddr_in *listen_addr)
+{
+    memset(listen_addr, 0, sizeof(struct sockaddr_in));
+    listen_addr->sin_family      = AF_INET;
+    listen_addr->sin_addr.s_addr = (address_str) ? inet_addr(address_str) : INADDR_ANY;
+    listen_addr->sin_port        = htons(server_port);
+}
+
 typedef struct
 {
     ucp_worker_h ucp_data_worker;
