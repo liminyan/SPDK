@@ -106,8 +106,8 @@ spdk_tgt_started(void *arg1)
 int
 main(int argc, char **argv)
 {
-	struct spdk_app_opts opts = {};
-	int rc;
+	// struct spdk_app_opts opts = {};
+	// int rc;
 	printf("hi master\n");
 	// spdk_app_opts_init(&opts);
 	// opts.name = "spdk_tgt";
@@ -120,5 +120,6 @@ main(int argc, char **argv)
 	// rc = spdk_app_start(&opts, spdk_tgt_started, NULL);
 	// spdk_app_fini();
 
-	return rc;
+	// return rc;
+	return 0;
 }

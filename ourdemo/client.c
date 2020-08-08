@@ -169,29 +169,30 @@ static void err_cb(void *arg, ucp_ep_h ep, ucs_status_t status){
 
 }
 
-static int init_context(ucp_context_h *ucp_context, ucp_worker_h *ucp_worker){     
-   
-    ucp_params_t ucp_params;
-    ucs_status_t status;
-    int ret = 0;
-    memset(&ucp_params, 0, sizeof(ucp_params));
-    /* UCP initialization */
-    ucp_params.field_mask = UCP_PARAM_FIELD_FEATURES;
-    ucp_params.features = UCP_FEATURE_STREAM;
-    status = ucp_init(&ucp_params, NULL, ucp_context);
-    if (status != UCS_OK) {
-        goto err;
-    }
-    ret = init_worker(*ucp_context, ucp_worker);
-    if (ret != 0) {
-        goto err_cleanup;
-    }
-    return ret;
-  err_cleanup:
-    ucp_cleanup(*ucp_context);
-  err:
-    printf("GG!\n");
-    return ret;
+
+static int init_context(ucp_context_h *ucp_context , ucp_worker_h *ucp_worker){
+    
+    ucp_params_t ucp_params;
+    ucs_status_t status;
+    
+    int ret = 0;
+    memset(&ucp_params , 0 , sizeof(ucp_params));
+    ucp_params.field_mask = UCP_PARAM_FIELD_FEATURES;
+    ucp_params.features   = UCP_FEATURE_STREAM;
+    status = ucp_init(&ucp_params , NULL , ucp_context);
+    if (status != UCS_OK){
+        goto err;
+    }
+    ret = init_worker(*ucp_context , ucp_worker);
+    if (ret !=0){
+        goto err_cleanup;
+    }
+    return ret;
+    err_cleanup:
+        ucp_cleanup(*ucp_context);
+    err:
+        printf("GG!\n");
+        return ret;
 
 }
 
