@@ -62,6 +62,7 @@ ifeq ($(CONFIG_REDUCE),y)
 DPDK_DRIVERS += compress compress/isal compress/qat common/qat
 DPDK_CFLAGS += -I$(ISAL_DIR)
 DPDK_LDFLAGS += -L$(ISAL_DIR)/.libs -lisal
+
 endif
 
 DPDK_OPTS += -Dmachine=$(TARGET_ARCHITECTURE)
@@ -71,7 +72,18 @@ $(error Automatic DPDK cross build is not supported. Please compile DPDK manuall
 with e.g. `meson build --cross-file config/arm/arm64_armv8_linux_gcc`)
 endif
 
+DPDK_CFLAGS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include
+DPDK_LDFLAGS += -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
+DPDK_CFLAGS += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src 
+
+# -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src 
+# -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include 
+# -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include
+
+
+
 DPDK_CFLAGS += -fPIC
+
 
 ifeq ($(CONFIG_DEBUG),y)
 DPDK_CFLAGS += -O0 -g

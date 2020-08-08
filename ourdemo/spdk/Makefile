@@ -144,3 +144,5 @@ ldflags: .ldflags .libs_only_other
 	$(Q)echo ''
 
 include $(SPDK_ROOT_DIR)/mk/spdk.subdirs.mk
+include /global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include
+include 
