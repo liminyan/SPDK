@@ -35,6 +35,10 @@ SPDK_ROOT_DIR := $(abspath $(CURDIR)/../..)
 include $(SPDK_ROOT_DIR)/mk/spdk.common.mk
 include $(SPDK_ROOT_DIR)/mk/spdk.modules.mk
 
+# -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src
+# -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include 
+# -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
+
 APP = nvmf_tgt
 
 C_SRCS := nvmf_main.c

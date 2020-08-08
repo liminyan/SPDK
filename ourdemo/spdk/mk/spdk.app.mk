@@ -50,6 +50,10 @@ LIBS += $(SPDK_LIB_LINKER_ARGS)
 
 CLEAN_FILES = $(APP)
 
+SPDK_LIB_FILES += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src 
+SPDK_LIB_FILES += -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include 
+SPDK_LIB_FILES += -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
+
 all : $(APP)
 	@:
 
@@ -60,6 +64,9 @@ uninstall: empty_rule
 # To avoid overwriting warning
 empty_rule:
 	@:
+
+
+
 
 $(APP) : $(OBJS) $(SPDK_LIB_FILES) $(ENV_LIBS)
 	$(LINK_C)
