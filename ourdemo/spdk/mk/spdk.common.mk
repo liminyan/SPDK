@@ -246,7 +246,7 @@ CXX_SRCS += $(CXX_SRCS-y)
 
 OBJS = $(C_SRCS:.c=.o) $(CXX_SRCS:.cpp=.o)
 
-DEPFLAGS = -MMD -MP -MF $*.d.tmp
+DEPFLAGS = -MMD -MP -MF $*.d.tmp -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
 
 # Compile first input $< (.c) into $@ (.o)
 COMPILE_C=\
