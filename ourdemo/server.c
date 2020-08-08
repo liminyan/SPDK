@@ -219,7 +219,7 @@ mire_struct start_server()
     // status = ucp_listener_create(ucp_worker, &params, listener_p);
     if (status != UCS_OK) {
         printf("mire gg!\n");
-        goto out;
+        goto err;
     }
     // attr.field_mask = UCP_LISTENER_ATTR_FIELD_SOCKADDR;
     // status = ucp_listener_query(*listener_p, &attr);
