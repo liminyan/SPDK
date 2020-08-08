@@ -85,6 +85,30 @@ static void err_cb(void *arg, ucp_ep_h ep, ucs_status_t status)
            status, ucs_status_string(status));
 }
 
+static void usage(){
+    fprintf(stderr, "Usage: ucp_client_server [parameters]\n");
+    fprintf(stderr, "UCP client-server example utility\n");
+    fprintf(stderr, "\nParameters are:\n");
+    fprintf(stderr, " -a Set IP address of the server "
+                    "(required for client and should not be specified "
+                    "for the server)\n");
+    fprintf(stderr, " -l Set IP address where server listens "
+                    "(If not specified, server uses INADDR_ANY; "
+                    "Irrelevant at client)\n");
+    fprintf(stderr, " -p Port number to listen/connect to (default = %d). "
+                    "0 on the server side means select a random port and print it\n",
+                    DEFAULT_PORT);
+    fprintf(stderr, " -c Communication type for the client and server. "
+                    " Valid values are:\n"
+                    "     'stream' : Stream API\n"
+                    "     'tag'    : Tag API\n"
+                    "    If not specified, %s API will be used.\n", COMM_TYPE_DEFAULT);
+    fprintf(stderr, " -i Number of iterations to run. Client and server must "
+                    "have the same value. (default = %d).\n",
+                    num_iterations);
+    fprintf(stderr, "\n");
+}
+
 static int parse_cmd(int argc, char *const argv[], char **server_addr, char **listen_addr, send_recv_type_t *send_recv_type){
     
     int c = 0;
@@ -131,6 +155,24 @@ static int parse_cmd(int argc, char *const argv[], char **server_addr, char **li
     return 0;
 }
 
+static int init_worker(ucp_context_h ucp_context, ucp_worker_h *ucp_worker){
+    ucp_worker_params_t worker_params;
+    ucs_status_t status;
+    int ret = 0;
+
+    memset(&worker_params, 0, sizeof(worker_params));
+
+    worker_params.field_mask  = UCP_WORKER_PARAM_FIELD_THREAD_MODE;
+    worker_params.thread_mode = UCS_THREAD_MODE_SINGLE;
+
+    status = ucp_worker_create(ucp_context, &worker_params, ucp_worker);
+    if (status != UCS_OK) {
+        fprintf(stderr, "failed to ucp_worker_create (%s)\n", ucs_status_string(status));
+        ret = -1;
+    }
+
+    return ret;
+}
 
 static int init_context(ucp_context_h *ucp_context , ucp_worker_h *ucp_worker){
     
@@ -156,6 +198,13 @@ static int init_context(ucp_context_h *ucp_context , ucp_worker_h *ucp_worker){
         printf("GG!\n");
         return ret;
 
+}
+
+void set_connect_addr(const char *address_str, struct sockaddr_in *connect_addr){
+    memset(connect_addr, 0, sizeof(struct sockaddr_in));
+    connect_addr->sin_family      = AF_INET;
+    connect_addr->sin_addr.s_addr = inet_addr(address_str);
+    connect_addr->sin_port        = htons(server_port);
 }
 
 static ucs_status_t start_client(ucp_worker_h ucp_worker, const char *ip, ucp_ep_h *client_ep){
@@ -196,6 +245,26 @@ static ucs_status_t start_client(ucp_worker_h ucp_worker, const char *ip, ucp_ep
     }
 
     return status;
+}
+
+static int request_finalize(ucp_worker_h ucp_worker, test_req_t *request, int is_server, char *recv_message, int current_iter){
+    ucs_status_t status;
+    int ret = 0;
+
+    status = request_wait(ucp_worker, request);
+    if (status != UCS_OK) {
+        fprintf(stderr, "unable to %s UCX message (%s)\n",
+                is_server ? "receive": "send", ucs_status_string(status));
+        return -1;
+    }
+
+    /* Print the output of the first, last and every PRINT_INTERVAL iteration */
+    if ((current_iter == 0) || (current_iter == (num_iterations - 1)) ||
+        !((current_iter + 1) % (PRINT_INTERVAL))) {
+        print_result(is_server, recv_message, current_iter);
+    }
+
+    return ret;
 }
 
 static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, int is_server, int current_iter){
