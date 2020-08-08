@@ -69,7 +69,7 @@ empty_rule:
 
 
 $(APP) : $(OBJS) $(SPDK_LIB_FILES) $(ENV_LIBS)
-	$(LINK_C)  -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src 
+	$(LINK_C)  -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/src -I/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/include -L/global/home/users/rdmaworkshop12/SPDK/ourdemo/ucx-1.8.1/install/lib
 
 clean :
 	$(CLEAN_C) $(CLEAN_FILES)
