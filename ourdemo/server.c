@@ -223,3 +223,4 @@ int main()
     mire_struct mire = start_server(); //start_client()
     server_recv(mire, buffer, size_t, 1); //client_send()
 }
+
