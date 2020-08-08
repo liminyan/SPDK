@@ -38,7 +38,7 @@
 #include "spdk/vhost.h"
 
 
-// #include <ucp/api/ucp.h>
+#include <ucp/api/ucp.h>
 #include <string.h>    /* memset */
 #include <arpa/inet.h> /* inet_addr */
 #include <unistd.h>    /* getopt */
