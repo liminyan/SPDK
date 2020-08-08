@@ -17,6 +17,12 @@ const  char test_message[]           = "UCX Client-Server Hello World";
 static uint16_t server_port          = DEFAULT_PORT;
 static int num_iterations            = DEFAULT_NUM_ITERATIONS;
 
+typedef enum {
+    CLIENT_SERVER_SEND_RECV_STREAM  = UCS_BIT(0),
+    CLIENT_SERVER_SEND_RECV_TAG     = UCS_BIT(1),
+    CLIENT_SERVER_SEND_RECV_DEFAULT = CLIENT_SERVER_SEND_RECV_STREAM
+} send_recv_type_t;
+
 typedef struct ucx_server_ctx {
     volatile ucp_conn_request_h conn_request;
     ucp_listener_h              listener;
@@ -119,23 +125,17 @@ void set_listen_addr(const char *address_str, struct sockaddr_in *listen_addr)
     listen_addr->sin_port        = htons(server_port);
 }
 
+static void request_init(void *request)
+{
+    test_req_t *req = request;
+    req->complete = 0;
+}
+
 static void server_conn_handle_cb(ucp_conn_request_h conn_request, void *arg)
 {
     ucx_server_ctx_t *context = arg;
-    ucp_conn_request_attr_t attr;
-    char ip_str[IP_STRING_LEN];
-    char port_str[PORT_STRING_LEN];
     ucs_status_t status;
-    attr.field_mask = UCP_CONN_REQUEST_ATTR_FIELD_CLIENT_ADDR;
-    status = ucp_conn_request_query(conn_request, &attr);
-    if (status == UCS_OK) {
-        printf("Server received a connection request from client at address %s:%s\n",
-               sockaddr_get_ip_str(&attr.client_address, ip_str, sizeof(ip_str)),
-               sockaddr_get_port_str(&attr.client_address, port_str, sizeof(port_str)));
-    } else if (status != UCS_ERR_UNSUPPORTED) {
-        fprintf(stderr, "failed to query the connection request (%s)\n",
-                ucs_status_string(status));
-    }
+
     if (context->conn_request == NULL) {
         context->conn_request = conn_request;
     } else {
