@@ -42,18 +42,16 @@ static void tag_recv_cb(void *request, ucs_status_t status,
     ctx->complete = 1;
 }
 
-static void
-stream_recv_cb(void *request, ucs_status_t status, size_t length,
-               void *user_data)
+static void stream_recv_cb(void *request, ucs_status_t status, size_t length)
 {
-    test_req_t *ctx = user_data;
-    ctx->complete = 1;
+    test_req_t *req = request;
+    req->complete = 1;
 }
 
-static void send_cb(void *request, ucs_status_t status, void *user_data)
+static void send_cb(void *request, ucs_status_t status)
 {
-    test_req_t *ctx = user_data;
-    ctx->complete = 1;
+    test_req_t *req = request;
+    req->complete = 1;
 }
 
 static void err_cb(void *arg, ucp_ep_h ep, ucs_status_t status)
@@ -194,6 +192,7 @@ out:
 
 mire_struct start_server()
 {
+    mire_struct mire;
     ucs_status_t     status;
     ucx_server_ctx_t context;
     ucp_listener_attr_t attr;
@@ -202,6 +201,7 @@ mire_struct start_server()
     ucp_context_h ucp_context;
     ucp_worker_h  ucp_worker;
     ucp_worker_h  ucp_data_worker;
+    ucp_ep_h         server_ep;
     int ret = init_context(&ucp_context, &ucp_worker);
     ret = init_worker(ucp_context, &ucp_data_worker);
     context.conn_request = NULL;
@@ -234,6 +234,9 @@ mire_struct start_server()
     status = server_create_ep(ucp_data_worker, context.conn_request,
                                   &server_ep);
     //ret = client_server_do_work(ucp_data_worker, server_ep, send_recv_type, 1);
+    mire.ucp_data_worker = ucp_data_worker;
+    mire.server_ep = server_ep;
+    return mire;
 
 err_ep:
     ep_close(ucp_data_worker, server_ep);
@@ -242,7 +245,7 @@ err_listener:
 err_worker:
     ucp_worker_destroy(ucp_data_worker);
 err:
-    return ret;
+    return mire;
 }
 
 static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t)
@@ -268,7 +271,7 @@ static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, 
 //0 send 1 recv
 int server_send_recv(mire_struct mire_t, void* buffer, int size_t, int t)
 {
-    send_recv_stream(worker, ep, buffer, size_t, t);
+    send_recv_stream(mire_t.ucp_data_worker, mire_t.server_ep, buffer, size_t, t);
 }
 
 int main()
