@@ -1,5 +1,11 @@
 #include <ucp/api/ucp.h>
 
+typedef struct
+{
+    ucp_worker_h ucp_data_worker;
+    ucp_ep_h server_ep;
+} mire_struct;
+
 static int init_worker(ucp_context_h ucp_context, ucp_worker_h *ucp_worker)
 {
     ucp_worker_params_t worker_params;
@@ -122,7 +128,7 @@ out:
     return status;
 }
 
-int start_server()
+mire_struct start_server()
 {
     ucs_status_t     status;
     ucx_server_ctx_t context;
@@ -164,17 +170,8 @@ int start_server()
     }
     status = server_create_ep(ucp_data_worker, context.conn_request,
                                   &server_ep);
-    ret = client_server_do_work(ucp_data_worker, server_ep, send_recv_type,
-                                    1);
-        if (ret != 0) {
-            goto err_ep;
-        }
-        /* Close the endpoint to the client */
-        ep_close(ucp_data_worker, server_ep);
-        /* Reinitialize the server's context to be used for the next client */
-        context.conn_request = NULL;
-        printf("Waiting for connection...\n");
-    }
+    //ret = client_server_do_work(ucp_data_worker, server_ep, send_recv_type, 1);
+
 err_ep:
     ep_close(ucp_data_worker, server_ep);
 err_listener:
@@ -185,8 +182,44 @@ err:
     return ret;
 }
 
+static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int size_t, int t)
+
+{
+    ucp_request_param_t param;
+    test_req_t *request;
+    size_t length;
+    test_req_t ctx;
+    ctx.complete = 0;
+    param.op_attr_mask = UCP_OP_ATTR_FIELD_CALLBACK |
+                         UCP_OP_ATTR_FIELD_USER_DATA;
+    param.user_data    = &ctx;
+    if (!t) {
+        /* Sends a message to the server using the stream API */
+        param.cb.send = send_cb;
+        request       = ucp_stream_send_nbx(ep, buffer, size_t,
+                                            &param);
+    } else {
+        /* Receives a message from the client using the stream API */
+        param.op_attr_mask  |= UCP_OP_ATTR_FIELD_FLAGS;
+        param.flags          = UCP_STREAM_RECV_FLAG_WAITALL;
+        param.cb.recv_stream = stream_recv_cb;
+        request              = ucp_stream_recv_nbx(ep, buffer,
+                                                   size_t,
+                                                   &length, &param);
+    }
+    return 0;
+}
+
+//0 send 1 recv
+int server_send_recv(mire_struct mire_t, void* buffer, int size_t, int t)
+{
+    send_recv_stream(worker, ep, buffer, size_t, t);
+}
+
 int main()
 {
-    start_server(); //start_client()
-    //server_recv(); //client_send()
+    char buffer[100];
+    int size_t = 8;
+    mire_struct mire = start_server(); //start_client()
+    server_recv(mire, buffer, size_t, 1); //client_send()
 }

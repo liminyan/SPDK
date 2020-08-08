@@ -138,7 +138,7 @@ int
 spdk_rpc_listen(const char *listen_addr)
 {
 	int rc;
-	printf("listen Hello world!\n");
+	//printf("listen Hello world!\n");
 	memset(&g_rpc_listen_addr_unix, 0, sizeof(g_rpc_listen_addr_unix));
 
 	g_rpc_listen_addr_unix.sun_family = AF_UNIX;
