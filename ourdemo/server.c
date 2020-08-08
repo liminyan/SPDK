@@ -84,6 +84,12 @@ static int init_worker(ucp_context_h ucp_context, ucp_worker_h *ucp_worker)
     return ret;
 }
 
+static void request_init(void *request)
+{
+    test_req_t *req = request;
+    req->complete = 0;
+}
+
 static int init_context(ucp_context_h *ucp_context, ucp_worker_h *ucp_worker)
 {
     /* UCP objects */
@@ -123,12 +129,6 @@ void set_listen_addr(const char *address_str, struct sockaddr_in *listen_addr)
     listen_addr->sin_family      = AF_INET;
     listen_addr->sin_addr.s_addr = (address_str) ? inet_addr(address_str) : INADDR_ANY;
     listen_addr->sin_port        = htons(server_port);
-}
-
-static void request_init(void *request)
-{
-    test_req_t *req = request;
-    req->complete = 0;
 }
 
 static void server_conn_handle_cb(ucp_conn_request_h conn_request, void *arg)
