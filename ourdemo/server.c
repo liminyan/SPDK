@@ -344,21 +344,23 @@ static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, 
                                      stream_recv_cb, &length,
                                      UCP_STREAM_RECV_FLAG_WAITALL);
     }
+    printf("waiting\n");
     request_wait(ucp_worker, request);
+    printf("Done waiting\n");
     printf("%d\n", length);
     return 0;
 }
 
 //0 send 1 recv
-int server_send_recv(mire_struct mire_t, void* buffer, int size_t, int t)
+int server_send_recv(mire_struct mire_t, void* buffer, int comm_size, int t)
 {
-    send_recv_stream(mire_t.ucp_data_worker, mire_t.server_ep, buffer, size_t, t);
+    send_recv_stream(mire_t.ucp_data_worker, mire_t.server_ep, buffer, comm_size, t);
 }
 
 int main()
 {
     char buffer[100];
-    int size_t = 100;
+    int comm_size = 100;
     mire_struct mire = start_server(NULL); //start_client()
     printf("shoudaola!\n");
     server_send_recv(mire, buffer, size_t, 1); //client_send()
