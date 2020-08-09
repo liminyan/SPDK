@@ -439,24 +439,47 @@ out:
     return ret;
 }
 
+static int our_send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t)
+
+{
+    test_req_t *request;
+    size_t length;
+    if (!t) {
+        /* Client sends a message to the server using the stream API */
+        request = ucp_stream_send_nb(ep, buffer, 1,
+                                     ucp_dt_make_contig(comm_size),
+                                     send_cb, 0);
+    } else {
+        /* Server receives a message from the client using the stream API */
+        request = ucp_stream_recv_nb(ep, buffer, 1,
+                                     ucp_dt_make_contig(comm_size),
+                                     stream_recv_cb, &length,
+                                     UCP_STREAM_RECV_FLAG_WAITALL);
+    }
+    return 0;
+}
+
 int begin_client(int argc, char *const argv[]){
 
     send_recv_type_t send_recv_type = CLIENT_SERVER_SEND_RECV_DEFAULT;
     char *server_addr = NULL;
     char *listen_addr = NULL;
     int ret;
+    char buff[100] = "Hello World";  
+    int comm_size = 100;
 
     /* UCP objects */
     ucp_context_h ucp_context;
     ucp_worker_h  ucp_worker;
+    ucp_ep_h     client_ep;
     
     ret = parse_cmd(argc, argv, &server_addr, &listen_addr, &send_recv_type);
     ret = init_context(&ucp_context, &ucp_worker);
     if (ret != 0) {
         goto err;
     }
-
-    ret = run_client(ucp_worker, server_addr, send_recv_type);
+    ret = our_send_recv_stream(ucp_worker, client_ep,buff,comm_size,0);
+    //ret = run_client(ucp_worker, server_addr, send_recv_type);
   err:
     return ret;
 }
