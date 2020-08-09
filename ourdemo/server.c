@@ -253,7 +253,7 @@ out:
     return status;
 }
 
-mire_struct start_server()
+mire_struct start_server(const char* listen_addr)
 {
     mire_struct mire;
     ucs_status_t     status;
@@ -261,7 +261,6 @@ mire_struct start_server()
     ucp_listener_attr_t attr;
     send_recv_type_t send_recv_type = CLIENT_SERVER_SEND_RECV_DEFAULT;
     char *server_addr = NULL;
-    const char* listen_addr = "192.168.130.21";
     ucp_context_h ucp_context;
     ucp_worker_h  ucp_worker;
     ucp_worker_h  ucp_data_worker;
@@ -342,8 +341,9 @@ int main()
 {
     char buffer[100];
     int size_t = 8;
-    mire_struct mire = start_server(); //start_client()
+    mire_struct mire = start_server(NULL); //start_client()
     printf("shoudaola!\n");
     server_send_recv(mire, buffer, size_t, 1); //client_send()
+    prinf("%s\n", buffer);
 }
 
