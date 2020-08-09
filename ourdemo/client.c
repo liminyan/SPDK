@@ -381,7 +381,7 @@ static void ep_close(ucp_worker_h ucp_worker, ucp_ep_h ep){
 }
 
 static int client_server_communication(ucp_worker_h worker, ucp_ep_h ep, send_recv_type_t send_recv_type,int is_server, int current_iter){
-    int ret;
+    int ret = 0;
 
     switch (send_recv_type) {
     case CLIENT_SERVER_SEND_RECV_STREAM:
@@ -439,7 +439,7 @@ static int run_client(ucp_worker_h ucp_worker, char *server_addr, send_recv_type
     
     ucp_ep_h     client_ep;
     ucs_status_t status;
-    int          ret;
+    int          ret = 0;
         char buff[100] = "Hello World";  
     int comm_size = 100;
 
@@ -451,7 +451,7 @@ static int run_client(ucp_worker_h ucp_worker, char *server_addr, send_recv_type
     }
     
     //ret = our_send_recv_stream(ucp_worker, client_ep,buff,comm_size,0);
-    ret = client_server_do_work(ucp_worker, client_ep, send_recv_type, 0);
+    //ret = client_server_do_work(ucp_worker, client_ep, send_recv_type, 0);
 
     /* Close the endpoint to the server */
     ep_close(ucp_worker, client_ep);
@@ -467,7 +467,7 @@ int begin_client(int argc, char *const argv[]){
     send_recv_type_t send_recv_type = CLIENT_SERVER_SEND_RECV_DEFAULT;
     char *server_addr = NULL;
     char *listen_addr = NULL;
-    int ret;
+    int ret = 0;
 
 
     /* UCP objects */
@@ -490,7 +490,7 @@ int begin_client(int argc, char *const argv[]){
 
 int main(int argc, char **argv){
 
-  int ret;
+  int ret = 0;
 
   ret = begin_client(argc, argv);
   return ret;
