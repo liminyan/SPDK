@@ -328,6 +328,12 @@ static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, 
                                      stream_recv_cb, &length,
                                      UCP_STREAM_RECV_FLAG_WAITALL);
     }
+    status = request_wait(ucp_worker, request);
+    if (status != UCS_OK) {
+        fprintf(stderr, "unable to %s UCX message (%s)\n",
+                is_server ? "receive": "send", ucs_status_string(status));
+        return -1;
+    }
     return 0;
 }
 
@@ -340,7 +346,7 @@ int server_send_recv(mire_struct mire_t, void* buffer, int size_t, int t)
 int main()
 {
     char buffer[100];
-    int size_t = 8;
+    int size_t = 100;
     mire_struct mire = start_server(NULL); //start_client()
     printf("shoudaola!\n");
     server_send_recv(mire, buffer, size_t, 1); //client_send()
