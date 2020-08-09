@@ -311,6 +311,22 @@ err:
     return mire;
 }
 
+static ucs_status_t request_wait(ucp_worker_h ucp_worker, test_req_t *request){
+    ucs_status_t status;
+    /* if operation was completed immediately */
+    if (request == NULL) {
+        return UCS_OK;
+    }
+    while (request->complete == 0) {
+        ucp_worker_progress(ucp_worker);
+    }
+    status = ucp_request_check_status(request);
+    /* This request may be reused so initialize it for next time */
+    request->complete = 0;
+    ucp_request_free(request);
+    return status;
+}
+
 static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t)
 
 {
