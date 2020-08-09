@@ -432,6 +432,8 @@ static int our_send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buff
                                      stream_recv_cb, &length,
                                      UCP_STREAM_RECV_FLAG_WAITALL);
     }
+    request_wait(ucp_worker, request);
+    printf("Client Done\n");
     return 0;
 }
 
