@@ -417,28 +417,6 @@ out:
     return ret;
 }
 
-static int run_client(ucp_worker_h ucp_worker, char *server_addr, send_recv_type_t send_recv_type){
-    
-    ucp_ep_h     client_ep;
-    ucs_status_t status;
-    int          ret;
-
-    status = start_client(ucp_worker, server_addr, &client_ep);
-    if (status != UCS_OK) {
-        fprintf(stderr, "failed to start client (%s)\n", ucs_status_string(status));
-        ret = -1;
-        goto out;
-    }
-
-    ret = client_server_do_work(ucp_worker, client_ep, send_recv_type, 0);
-
-    /* Close the endpoint to the server */
-    ep_close(ucp_worker, client_ep);
-
-out:
-    return ret;
-}
-
 static int our_send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t){
     test_req_t *request;
     size_t length;
@@ -457,14 +435,40 @@ static int our_send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buff
     return 0;
 }
 
+static int run_client(ucp_worker_h ucp_worker, char *server_addr, send_recv_type_t send_recv_type){
+    
+    ucp_ep_h     client_ep;
+    ucs_status_t status;
+    int          ret;
+        char buff[100] = "Hello World";  
+    int comm_size = 100;
+
+    status = start_client(ucp_worker, server_addr, &client_ep);
+    if (status != UCS_OK) {
+        fprintf(stderr, "failed to start client (%s)\n", ucs_status_string(status));
+        ret = -1;
+        goto out;
+    }
+    
+    ret = our_send_recv_stream(ucp_worker, client_ep,buff,comm_size,0);
+    //ret = client_server_do_work(ucp_worker, client_ep, send_recv_type, 0);
+
+    /* Close the endpoint to the server */
+    ep_close(ucp_worker, client_ep);
+
+out:
+    return ret;
+}
+
+
+
 int begin_client(int argc, char *const argv[]){
 
     send_recv_type_t send_recv_type = CLIENT_SERVER_SEND_RECV_DEFAULT;
     char *server_addr = NULL;
     char *listen_addr = NULL;
     int ret;
-    char buff[100] = "Hello World";  
-    int comm_size = 100;
+
 
     /* UCP objects */
     ucp_context_h ucp_context;
@@ -476,8 +480,7 @@ int begin_client(int argc, char *const argv[]){
     if (ret != 0) {
         goto err;
     }
-    ret = our_send_recv_stream(ucp_worker, client_ep,buff,comm_size,0);
-    //ret = run_client(ucp_worker, server_addr, send_recv_type);
+    ret = run_client(ucp_worker, server_addr, send_recv_type);
   err:
     return ret;
 }
