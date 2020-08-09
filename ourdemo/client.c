@@ -439,7 +439,7 @@ out:
     return ret;
 }
 
-static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t){
+static int our_send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t){
     test_req_t *request;
     size_t length;
     if (!t) {
