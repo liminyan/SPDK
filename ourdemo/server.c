@@ -345,6 +345,7 @@ static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, 
                                      UCP_STREAM_RECV_FLAG_WAITALL);
     }
     request_wait(ucp_worker, request);
+    printf("%d\n", length);
     return 0;
 }
 
