@@ -261,6 +261,7 @@ mire_struct start_server()
     ucp_listener_attr_t attr;
     send_recv_type_t send_recv_type = CLIENT_SERVER_SEND_RECV_DEFAULT;
     char *server_addr = NULL;
+    const char* listen_addr = "192.168.130.21";
     ucp_context_h ucp_context;
     ucp_worker_h  ucp_worker;
     ucp_worker_h  ucp_data_worker;
@@ -269,7 +270,7 @@ mire_struct start_server()
     ret = init_worker(ucp_context, &ucp_data_worker);
     context.conn_request = NULL;
 
-    status = server_listen(ucp_worker, &context, &context.listener, NULL);
+    status = server_listen(ucp_worker, &context, &context.listener, listen_addr);
 
     // ucp_listener_params_t params;
     // params.field_mask         = UCP_LISTENER_PARAM_FIELD_SOCK_ADDR |
