@@ -329,11 +329,6 @@ static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, 
                                      UCP_STREAM_RECV_FLAG_WAITALL);
     }
     status = request_wait(ucp_worker, request);
-    if (status != UCS_OK) {
-        fprintf(stderr, "unable to %s UCX message (%s)\n",
-                is_server ? "receive": "send", ucs_status_string(status));
-        return -1;
-    }
     return 0;
 }
 
