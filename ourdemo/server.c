@@ -343,6 +343,7 @@ int main()
     char buffer[100];
     int size_t = 8;
     mire_struct mire = start_server(); //start_client()
+    printf("shoudaola!\n");
     server_send_recv(mire, buffer, size_t, 1); //client_send()
 }
 
