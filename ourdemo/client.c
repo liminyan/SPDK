@@ -439,24 +439,22 @@ out:
     return ret;
 }
 
-static int our_send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t)
-
-{
-    test_req_t *request;
-    size_t length;
-    if (!t) {
-        /* Client sends a message to the server using the stream API */
-        request = ucp_stream_send_nb(ep, buffer, 1,
-                                     ucp_dt_make_contig(comm_size),
-                                     send_cb, 0);
-    } else {
-        /* Server receives a message from the client using the stream API */
-        request = ucp_stream_recv_nb(ep, buffer, 1,
-                                     ucp_dt_make_contig(comm_size),
-                                     stream_recv_cb, &length,
-                                     UCP_STREAM_RECV_FLAG_WAITALL);
-    }
-    return 0;
+static int send_recv_stream(ucp_worker_h ucp_worker, ucp_ep_h ep, void* buffer, int comm_size, int t){
+    test_req_t *request;
+    size_t length;
+    if (!t) {
+        /* Client sends a message to the server using the stream API */
+        request = ucp_stream_send_nb(ep, buffer, 1,
+                                     ucp_dt_make_contig(comm_size),
+                                     send_cb, 0);
+    } else {
+        /* Server receives a message from the client using the stream API */
+        request = ucp_stream_recv_nb(ep, buffer, 1,
+                                     ucp_dt_make_contig(comm_size),
+                                     stream_recv_cb, &length,
+                                     UCP_STREAM_RECV_FLAG_WAITALL);
+    }
+    return 0;
 }
 
 int begin_client(int argc, char *const argv[]){
