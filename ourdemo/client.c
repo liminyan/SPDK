@@ -442,7 +442,7 @@ static int run_client(ucp_worker_h ucp_worker, char *server_addr, send_recv_type
     ucp_ep_h     client_ep;
     ucs_status_t status;
     int          ret = 0;
-        char buff[100] = "Hello World";  
+    char buff[100] = "Hello World";  
     int comm_size = 100;
 
     status = start_client(ucp_worker, server_addr, &client_ep);
@@ -452,7 +452,7 @@ static int run_client(ucp_worker_h ucp_worker, char *server_addr, send_recv_type
         goto out;
     }
     //
-    ret = our_send_recv_stream(ucp_worker, client_ep,buff,comm_size,0);
+    //ret = our_send_recv_stream(ucp_worker, client_ep,buff,comm_size,0);
     //ret = client_server_do_work(ucp_worker, client_ep, send_recv_type, 0);
 
     /* Close the endpoint to the server */
