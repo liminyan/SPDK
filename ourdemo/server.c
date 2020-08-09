@@ -363,7 +363,7 @@ int main()
     int comm_size = 100;
     mire_struct mire = start_server(NULL); //start_client()
     printf("shoudaola!\n");
-    server_send_recv(mire, buffer, size_t, 1); //client_send()
+    server_send_recv(mire, buffer, comm_size, 1); //client_send()
     printf("%s\n", buffer);
 }
 
